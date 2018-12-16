@@ -1,0 +1,24 @@
+# Template information section
+name: viper
+summary: 
+author: 
+version: 1.0.0
+license: 
+
+code_files:
+# View layer
+- {name: Presentation/View/ViewController.swift, path: Code/Presentation/View/viewcontroller.swift.liquid}
+
+# Presenter layer
+- {name: Presentation/Presenter.swift, path: Code/Presentation/presenter.swift.liquid}
+
+# Router layer
+- {name: Router.swift, path: Code/router.swift.liquid}
+
+# Contract
+- {name: Contract.swift, path: Code/contract.swift.liquid}
+
+# The declarations for test files
+test_files:
+# Presenter tests
+- {name: Presentation/PresenterTests.swift, path: Code/Presentation/presenter_tests.swift.liquid}

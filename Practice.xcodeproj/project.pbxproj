@@ -3,13 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 48;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		B259555921C63813007E0108 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B259555821C63813007E0108 /* AppDelegate.swift */; };
 		B259555B21C63813007E0108 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B259555A21C63813007E0108 /* ViewController.swift */; };
-		B259555E21C63813007E0108 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B259555C21C63813007E0108 /* Main.storyboard */; };
 		B259556021C63815007E0108 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B259555F21C63815007E0108 /* Assets.xcassets */; };
 		B259556321C63815007E0108 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B259556121C63815007E0108 /* LaunchScreen.storyboard */; };
 		B259556E21C63815007E0108 /* PracticeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B259556D21C63815007E0108 /* PracticeTests.swift */; };
@@ -37,7 +36,6 @@
 		B259555521C63813007E0108 /* Practice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Practice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B259555821C63813007E0108 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B259555A21C63813007E0108 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B259555D21C63813007E0108 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B259555F21C63815007E0108 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B259556221C63815007E0108 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B259556421C63815007E0108 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -74,6 +72,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		01DCFBDA507A960D66AE4653 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
 		B259554C21C63813007E0108 = {
 			isa = PBXGroup;
 			children = (
@@ -97,12 +102,10 @@
 		B259555721C63813007E0108 /* Practice */ = {
 			isa = PBXGroup;
 			children = (
-				B259555821C63813007E0108 /* AppDelegate.swift */,
+				B259558721C63AF6007E0108 /* Resources */,
+				B259558621C63A45007E0108 /* Application */,
 				B259555A21C63813007E0108 /* ViewController.swift */,
-				B259555C21C63813007E0108 /* Main.storyboard */,
-				B259555F21C63815007E0108 /* Assets.xcassets */,
-				B259556121C63815007E0108 /* LaunchScreen.storyboard */,
-				B259556421C63815007E0108 /* Info.plist */,
+				01DCFBDA507A960D66AE4653 /* Scenes */,
 			);
 			path = Practice;
 			sourceTree = "<group>";
@@ -123,6 +126,24 @@
 				B259557A21C63815007E0108 /* Info.plist */,
 			);
 			path = PracticeUITests;
+			sourceTree = "<group>";
+		};
+		B259558621C63A45007E0108 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				B259556121C63815007E0108 /* LaunchScreen.storyboard */,
+				B259556421C63815007E0108 /* Info.plist */,
+				B259555821C63813007E0108 /* AppDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		B259558721C63AF6007E0108 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B259555F21C63815007E0108 /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,19 +214,22 @@
 				TargetAttributes = {
 					B259555421C63813007E0108 = {
 						CreatedOnToolsVersion = 10.1;
+						ProvisioningStyle = Automatic;
 					};
 					B259556821C63815007E0108 = {
 						CreatedOnToolsVersion = 10.1;
+						ProvisioningStyle = Automatic;
 						TestTargetID = B259555421C63813007E0108;
 					};
 					B259557321C63815007E0108 = {
 						CreatedOnToolsVersion = 10.1;
+						ProvisioningStyle = Automatic;
 						TestTargetID = B259555421C63813007E0108;
 					};
 				};
 			};
 			buildConfigurationList = B259555021C63813007E0108 /* Build configuration list for PBXProject "Practice" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -231,7 +255,6 @@
 			files = (
 				B259556321C63815007E0108 /* LaunchScreen.storyboard in Resources */,
 				B259556021C63815007E0108 /* Assets.xcassets in Resources */,
-				B259555E21C63813007E0108 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,14 +316,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		B259555C21C63813007E0108 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B259555D21C63813007E0108 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		B259556121C63815007E0108 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -347,6 +362,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -408,6 +424,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -422,8 +439,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -434,11 +450,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8J78YW46G6;
-				INFOPLIST_FILE = Practice/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				INFOPLIST_FILE = Practice/Application/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yuka.Practice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -452,11 +465,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8J78YW46G6;
-				INFOPLIST_FILE = Practice/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				INFOPLIST_FILE = Practice/Application/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yuka.Practice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -472,11 +482,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8J78YW46G6;
 				INFOPLIST_FILE = PracticeTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yuka.PracticeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -493,11 +499,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8J78YW46G6;
 				INFOPLIST_FILE = PracticeTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yuka.PracticeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -513,11 +515,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8J78YW46G6;
 				INFOPLIST_FILE = PracticeUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yuka.PracticeUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -533,11 +531,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8J78YW46G6;
 				INFOPLIST_FILE = PracticeUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yuka.PracticeUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
