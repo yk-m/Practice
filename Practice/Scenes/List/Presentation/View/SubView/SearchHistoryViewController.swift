@@ -8,7 +8,15 @@
 
 import UIKit
 
+protocol SearchHistoryViewDelegate: class {
+    
+    func view(_ view: SearchHistoryViewController, didSelectRowAt query: RepositorySearchQuery)
+}
+
+
 class SearchHistoryViewController: UIViewController {
+    
+    weak var delegate: SearchHistoryViewDelegate?
     
     @IBOutlet private weak var tableView: UITableView! {
         didSet {
@@ -46,5 +54,9 @@ extension SearchHistoryViewController: UITableViewDelegate, UITableViewDataSourc
         let newCell = tableView.dequeueReusableCell(with: UITableViewCell.self, for: indexPath)
         newCell.textLabel?.text = items[indexPath.row].keyword
         return newCell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        delegate?.view(self, didSelectRowAt: items[indexPath.row])
     }
 }

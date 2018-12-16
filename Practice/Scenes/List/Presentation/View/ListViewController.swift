@@ -21,7 +21,12 @@ class ListViewController: UIViewController {
         }
     }
     
-    private let searchHistoryView = SearchHistoryViewController()
+    private lazy var searchHistoryView: SearchHistoryViewController = {
+        let view = SearchHistoryViewController()
+        view.delegate = self
+        return view
+    }()
+    
     private lazy var searchController: UISearchController = {
         let searchController = UISearchController(searchResultsController: searchHistoryView)
         searchController.searchBar.delegate = self
@@ -60,6 +65,17 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
         let newCell = tableView.dequeueReusableCell(with: ListCell.self, for: indexPath)
         newCell.set(repository: items[indexPath.row])
         return newCell
+    }
+}
+
+// MARK: - SearchHistoryViewDelegate
+extension ListViewController: SearchHistoryViewDelegate {
+    
+    func view(_ view: SearchHistoryViewController, didSelectRowAt query: RepositorySearchQuery) {
+        defer {
+            searchController.dismiss(animated: true)
+        }
+        presenter.set(searchText: query.keyword)
     }
 }
 

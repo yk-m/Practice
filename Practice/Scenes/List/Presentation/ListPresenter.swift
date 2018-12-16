@@ -17,6 +17,8 @@ class ListViewPresenter {
     
     private var searchText = "" {
         didSet {
+            view?.set(searchText: searchText)
+            
             let query = RepositorySearchQuery(keyword: searchText)
             searchHistoryInteractor.add(query: query)
             repositoryInteractor.retrieve(query: query)
@@ -76,7 +78,7 @@ extension ListViewPresenter: SearchHistoryInteractorDelegate {
             return
         }
         
-        view?.set(searchText: searchText)
+        self.searchText = searchText
     }
     
     func interactor(_ interactor: SearchHistoryUsecase, didRetrieveLatestRecord query: RepositorySearchQuery?) {
@@ -84,6 +86,6 @@ extension ListViewPresenter: SearchHistoryInteractorDelegate {
             return
         }
         
-        view?.set(searchText: searchText)
+        self.searchText = searchText
     }
 }
