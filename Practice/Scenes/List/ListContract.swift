@@ -11,12 +11,15 @@ import Foundation
 // MARK: - view
 protocol ListView: class {
 
+    func set(repositories: [Repository])
+    func presentAlert(title: String, message: String)
 }
 
 // MARK: - presenter
 protocol ListViewPresentable: class {
 
     func viewDidLoad()
+    func set(searchText: String)
 }
 
 // MARK: - router

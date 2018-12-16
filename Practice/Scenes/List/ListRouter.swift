@@ -19,9 +19,11 @@ class ListRouter {
     static func assembleModules() -> UIViewController {
         let view = ListViewController()
         let router = ListRouter(viewController: view)
-        let presenter = ListViewPresenter(view: view, router: router)
+        let repositoryInteractor = RepositoryInteractor()
+        let presenter = ListViewPresenter(view: view, router: router, repositoryInteractor: repositoryInteractor)
 
         view.presenter = presenter
+        repositoryInteractor.delegate = presenter
 
         return view
     }

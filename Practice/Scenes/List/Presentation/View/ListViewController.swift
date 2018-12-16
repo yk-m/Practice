@@ -21,15 +21,34 @@ class ListViewController: UIViewController {
         }
     }
     
-    var items = ["test"]
+    private lazy var searchController: UISearchController = {
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchBar.delegate = self
+        return searchController
+    }()
+    
+    private var items: [Repository] = [] {
+        didSet {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        definesPresentationContext = true
+        
+        navigationItem.title = "Search"
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
 
         presenter.viewDidLoad()
     }
 }
 
+// MARK: - UITableViewDelegate, UITableViewDataSource
 extension ListViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -38,11 +57,35 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let newCell = tableView.dequeueReusableCell(with: ListCell.self, for: indexPath)
-        newCell.set(text: items[indexPath.row])
+        newCell.set(repository: items[indexPath.row])
         return newCell
     }
 }
 
-extension ListViewController: ListView {
+// MARK: - UISearchBarDelegate
+extension ListViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        defer {
+            searchController.dismiss(animated: true)
+        }
+        guard let searchText = searchBar.text,
+            searchText != "" else {
+                return
+        }
+        
+        presenter.set(searchText: searchText)
+    }
+}
 
+// MARK: - ListView
+extension ListViewController: ListView {
+    
+    func set(repositories: [Repository]) {
+        items = repositories
+    }
+    
+    func presentAlert(title: String, message: String) {
+        let alert = UIAlertController.singleBtnAlert(with: title, message: message, completion: nil)
+        present(alert, animated: true, completion: nil)
+    }
 }

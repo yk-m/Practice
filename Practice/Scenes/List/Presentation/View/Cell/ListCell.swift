@@ -23,7 +23,7 @@ class ListCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func set(text: String) {
-        label.text = text
+    func set(repository: Repository) {
+        label.text = repository.fullName
     }
 }
