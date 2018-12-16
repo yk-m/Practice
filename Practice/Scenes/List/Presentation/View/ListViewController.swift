@@ -37,7 +37,7 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let newCell = tableView.dequeueReusableCell(with: ListCell.self, for: indexPath) as! ListCell
+        let newCell = tableView.dequeueReusableCell(with: ListCell.self, for: indexPath)
         newCell.set(text: items[indexPath.row])
         return newCell
     }
