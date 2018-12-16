@@ -23,10 +23,6 @@ extension RepositorySearchQuery: Queryable {
 
 extension RepositorySearchQuery: Persistable {
     
-    static var object: RepositorySearchQueryObject.Type {
-        return RepositorySearchQueryObject.self
-    }
-    
     init(managedObject: RepositorySearchQueryObject) {
         keyword = managedObject.keyword
     }

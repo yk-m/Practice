@@ -39,11 +39,19 @@ class ListViewPresenter {
 extension ListViewPresenter: ListViewPresentable {
 
     func viewDidLoad() {
+        searchHistoryInteractor.retrieveLatestRecord()
+    }
+    
+    func willPresentSearchController() {
         searchHistoryInteractor.retrieve()
     }
     
     func set(searchText: String) {
         self.searchText = searchText
+    }
+    
+    func filter(text: String) {
+        searchHistoryInteractor.filter(text: text)
     }
 }
 
@@ -73,12 +81,6 @@ extension ListViewPresenter: SearchHistoryInteractorDelegate {
     
     func interactor(_ interactor: SearchHistoryUsecase, didRetrieveHistory queries: [RepositorySearchQuery]) {
         view?.set(queries: queries)
-        
-        guard let searchText = queries.first?.keyword else {
-            return
-        }
-        
-        self.searchText = searchText
     }
     
     func interactor(_ interactor: SearchHistoryUsecase, didRetrieveLatestRecord query: RepositorySearchQuery?) {

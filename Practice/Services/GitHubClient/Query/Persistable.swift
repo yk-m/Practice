@@ -19,3 +19,10 @@ protocol Persistable {
     
     func managedObject() -> ManagedObject
 }
+
+extension Persistable {
+    
+    static var object: ManagedObject.Type {
+        return ManagedObject.self
+    }
+}

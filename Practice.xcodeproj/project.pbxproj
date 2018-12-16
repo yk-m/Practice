@@ -43,6 +43,7 @@
 		B262754B21C6958B00F5441E /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = B262754A21C6958B00F5441E /* Container.swift */; };
 		B262755121C6A5AD00F5441E /* SearchHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B262754F21C6A5AD00F5441E /* SearchHistoryViewController.swift */; };
 		B262755221C6A5AD00F5441E /* SearchHistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B262755021C6A5AD00F5441E /* SearchHistoryViewController.xib */; };
+		B27D19C821C6C1AA00409751 /* String+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27D19C721C6C1AA00409751 /* String+extension.swift */; };
 		C78829C7A76E2227FC5696EE /* Pods_PracticeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 825CEC611AE200AEC9940680 /* Pods_PracticeTests.framework */; };
 		FF9A44172FA6F87BB418DC99 /* Pods_Practice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19EA8C779DD064FA64F1F1D4 /* Pods_Practice.framework */; };
 /* End PBXBuildFile section */
@@ -111,6 +112,7 @@
 		B262754A21C6958B00F5441E /* Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
 		B262754F21C6A5AD00F5441E /* SearchHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryViewController.swift; sourceTree = "<group>"; };
 		B262755021C6A5AD00F5441E /* SearchHistoryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchHistoryViewController.xib; sourceTree = "<group>"; };
+		B27D19C721C6C1AA00409751 /* String+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+extension.swift"; sourceTree = "<group>"; };
 		CCF0D918BD63A899A22B3734 /* ListPresenterTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ListPresenterTests.swift; sourceTree = "<group>"; };
 		D870320F86057DEFAB8801D6 /* Pods_PracticeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PracticeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA5F4ECFEB2E1985D3EE7AC1 /* Pods-Practice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Practice.release.xcconfig"; path = "Pods/Target Support Files/Pods-Practice/Pods-Practice.release.xcconfig"; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 				B259558E21C6500E007E0108 /* UITableView+extension.swift */,
 				B259559121C65077007E0108 /* NSObject+extension.swift */,
 				B262754221C6873700F5441E /* UIAlertController+extension.swift */,
+				B27D19C721C6C1AA00409751 /* String+extension.swift */,
 			);
 			path = Environment;
 			sourceTree = "<group>";
@@ -630,6 +633,7 @@
 				B262754921C68F0800F5441E /* SearchHistoryInteractor.swift in Sources */,
 				B259559221C65077007E0108 /* NSObject+extension.swift in Sources */,
 				B25955B521C65CC6007E0108 /* GitHubAPIError.swift in Sources */,
+				B27D19C821C6C1AA00409751 /* String+extension.swift in Sources */,
 				B25955B121C65CC6007E0108 /* GitHubAPI.swift in Sources */,
 				B259558F21C6500E007E0108 /* UITableView+extension.swift in Sources */,
 				B25955AF21C65CC6007E0108 /* Repository.swift in Sources */,

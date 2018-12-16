@@ -29,6 +29,8 @@ class ListViewController: UIViewController {
     
     private lazy var searchController: UISearchController = {
         let searchController = UISearchController(searchResultsController: searchHistoryView)
+        searchController.delegate = self
+        searchController.searchResultsUpdater = self
         searchController.searchBar.delegate = self
         return searchController
     }()
@@ -72,10 +74,27 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
 extension ListViewController: SearchHistoryViewDelegate {
     
     func view(_ view: SearchHistoryViewController, didSelectRowAt query: RepositorySearchQuery) {
-        defer {
-            searchController.dismiss(animated: true)
+        searchController.searchBar.text = query.keyword
+    }
+}
+
+// MARK: - UISearchControllerDelegate
+extension ListViewController: UISearchControllerDelegate {
+    
+    func willPresentSearchController(_ searchController: UISearchController) {
+        presenter.willPresentSearchController()
+    }
+}
+
+// MARK: - UISearchResultsUpdating
+extension ListViewController: UISearchResultsUpdating {
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let searchText = searchController.searchBar.text else {
+            return
         }
-        presenter.set(searchText: query.keyword)
+        
+        presenter.filter(text: searchText)
     }
 }
 

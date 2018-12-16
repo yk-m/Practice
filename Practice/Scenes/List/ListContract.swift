@@ -21,6 +21,8 @@ protocol ListView: class {
 protocol ListViewPresentable: class {
 
     func viewDidLoad()
+    func willPresentSearchController()
+    func filter(text: String)
     func set(searchText: String)
 }
 

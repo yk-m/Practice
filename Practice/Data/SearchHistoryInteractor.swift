@@ -14,6 +14,7 @@ protocol SearchHistoryUsecase {
     func add(query: RepositorySearchQuery)
     func retrieve()
     func retrieveLatestRecord()
+    func filter(text: String)
 }
 
 protocol SearchHistoryInteractorDelegate: class {
@@ -68,5 +69,13 @@ extension SearchHistoryInteractor: SearchHistoryUsecase {
         }
         
         delegate?.interactor(self, didRetrieveLatestRecord: query)
+    }
+    
+    func filter(text: String) {
+        let queries: [RepositorySearchQuery] = container.retrieve { _, objects in
+            return objects.filter("keyword contains '\(text.realmEscaped)'").sorted(byKeyPath: "date", ascending: false)
+        }
+        
+        delegate?.interactor(self, didRetrieveHistory: queries)
     }
 }
