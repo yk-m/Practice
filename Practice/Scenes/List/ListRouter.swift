@@ -20,10 +20,15 @@ class ListRouter {
         let view = ListViewController()
         let router = ListRouter(viewController: view)
         let repositoryInteractor = RepositoryInteractor()
-        let presenter = ListViewPresenter(view: view, router: router, repositoryInteractor: repositoryInteractor)
+        let searchHistoryInteractor = SearchHistoryInteractor()
+        let presenter = ListViewPresenter(view: view,
+                                          router: router,
+                                          repositoryInteractor: repositoryInteractor,
+                                          searchHistoryInteractor: searchHistoryInteractor)
 
         view.presenter = presenter
         repositoryInteractor.delegate = presenter
+        searchHistoryInteractor.delegate = presenter
 
         return view
     }

@@ -11,6 +11,8 @@ import Foundation
 // MARK: - view
 protocol ListView: class {
 
+    func set(searchText: String)
+    func set(queries: [RepositorySearchQuery])
     func set(repositories: [Repository])
     func presentAlert(title: String, message: String)
 }

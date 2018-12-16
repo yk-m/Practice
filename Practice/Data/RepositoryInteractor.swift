@@ -11,7 +11,7 @@ import Foundation
 protocol RepositoryUsecase {
     
     func retrieve(keyword: String)
-    func retrieve(query: SearchRepositoriesQuery)
+    func retrieve(query: RepositorySearchQuery)
 }
 
 protocol RepositoryInteractorDelegate: class {
@@ -34,11 +34,11 @@ class RepositoryInteractor {
 extension RepositoryInteractor: RepositoryUsecase {
     
     func retrieve(keyword: String) {
-        let query = SearchRepositoriesQuery(keyword: keyword)
+        let query = RepositorySearchQuery(keyword: keyword)
         retrieve(query: query)
     }
     
-    func retrieve(query: SearchRepositoriesQuery) {
+    func retrieve(query: RepositorySearchQuery) {
         let request = GitHubAPI.SearchRepositories(query: query)
         
         client.send(request: request) { result in

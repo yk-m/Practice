@@ -13,26 +13,31 @@ class ListViewPresenter {
     private weak var view: ListView?
     private let router: ListWireframe
     private let repositoryInteractor: RepositoryUsecase
+    private let searchHistoryInteractor: SearchHistoryUsecase
     
     private var searchText = "" {
         didSet {
-            repositoryInteractor.retrieve(keyword: searchText)
+            let query = RepositorySearchQuery(keyword: searchText)
+            searchHistoryInteractor.add(query: query)
+            repositoryInteractor.retrieve(query: query)
         }
     }
 
     init(view: ListView,
          router: ListWireframe,
-         repositoryInteractor: RepositoryUsecase) {
+         repositoryInteractor: RepositoryUsecase,
+         searchHistoryInteractor: SearchHistoryUsecase) {
         self.router = router
         self.view = view
         self.repositoryInteractor = repositoryInteractor
+        self.searchHistoryInteractor = searchHistoryInteractor
     }
 }
 
 extension ListViewPresenter: ListViewPresentable {
 
     func viewDidLoad() {
-
+        searchHistoryInteractor.retrieve()
     }
     
     func set(searchText: String) {
@@ -55,5 +60,30 @@ extension ListViewPresenter: RepositoryInteractorDelegate {
         case .apiError(let error):
             view?.presentAlert(title: "エラーが発生しました", message: error.message)
         }
+    }
+}
+
+extension ListViewPresenter: SearchHistoryInteractorDelegate {
+    
+    func interactor(_ interactor: SearchHistoryUsecase, didUpdate queries: [RepositorySearchQuery]) {
+        view?.set(queries: queries)
+    }
+    
+    func interactor(_ interactor: SearchHistoryUsecase, didRetrieveHistory queries: [RepositorySearchQuery]) {
+        view?.set(queries: queries)
+        
+        guard let searchText = queries.first?.keyword else {
+            return
+        }
+        
+        view?.set(searchText: searchText)
+    }
+    
+    func interactor(_ interactor: SearchHistoryUsecase, didRetrieveLatestRecord query: RepositorySearchQuery?) {
+        guard let searchText = query?.keyword else {
+            return
+        }
+        
+        view?.set(searchText: searchText)
     }
 }

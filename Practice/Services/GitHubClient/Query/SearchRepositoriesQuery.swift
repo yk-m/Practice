@@ -7,15 +7,33 @@
 //
 
 import Foundation
+import RealmSwift
 
-struct SearchRepositoriesQuery {
+struct RepositorySearchQuery {
     
     let keyword: String
 }
 
-extension SearchRepositoriesQuery: Queryable {
+extension RepositorySearchQuery: Queryable {
     
     func serialize() -> [URLQueryItem] {
         return [URLQueryItem(name: "q", value: keyword)]
+    }
+}
+
+extension RepositorySearchQuery: Persistable {
+    
+    static var object: RepositorySearchQueryObject.Type {
+        return RepositorySearchQueryObject.self
+    }
+    
+    init(managedObject: RepositorySearchQueryObject) {
+        keyword = managedObject.keyword
+    }
+    
+    func managedObject() -> RepositorySearchQueryObject {
+        let query = RepositorySearchQueryObject()
+        query.keyword = keyword
+        return query
     }
 }

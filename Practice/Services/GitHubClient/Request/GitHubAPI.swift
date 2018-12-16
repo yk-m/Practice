@@ -14,7 +14,7 @@ final class GitHubAPI {
         
         typealias Response = SearchResponse<Repository>
         
-        let query: SearchRepositoriesQuery
+        let query: RepositorySearchQuery
         
         var path: String {
             return "/search/repositories"

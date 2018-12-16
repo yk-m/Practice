@@ -12,7 +12,7 @@ class ListViewController: UIViewController {
 
     var presenter: ListViewPresentable!
     
-    @IBOutlet weak var tableView: UITableView! {
+    @IBOutlet private weak var tableView: UITableView! {
         didSet {
             tableView.register(cellType: ListCell.self)
             
@@ -21,8 +21,9 @@ class ListViewController: UIViewController {
         }
     }
     
+    private let searchHistoryView = SearchHistoryViewController()
     private lazy var searchController: UISearchController = {
-        let searchController = UISearchController(searchResultsController: nil)
+        let searchController = UISearchController(searchResultsController: searchHistoryView)
         searchController.searchBar.delegate = self
         return searchController
     }()
@@ -79,6 +80,14 @@ extension ListViewController: UISearchBarDelegate {
 
 // MARK: - ListView
 extension ListViewController: ListView {
+    
+    func set(searchText: String) {
+        searchController.searchBar.text = searchText
+    }
+    
+    func set(queries: [RepositorySearchQuery]) {
+        searchHistoryView.set(queries: queries)
+    }
     
     func set(repositories: [Repository]) {
         items = repositories

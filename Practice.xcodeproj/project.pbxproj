@@ -37,6 +37,12 @@
 		B25955C021C676D2007E0108 /* Queryable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25955BF21C676D2007E0108 /* Queryable.swift */; };
 		B25955C221C67819007E0108 /* RepositoryInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25955C121C67819007E0108 /* RepositoryInteractor.swift */; };
 		B262754321C6873700F5441E /* UIAlertController+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B262754221C6873700F5441E /* UIAlertController+extension.swift */; };
+		B262754521C68C5700F5441E /* RepositorySearchQueryObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B262754421C68C5700F5441E /* RepositorySearchQueryObject.swift */; };
+		B262754721C68CE800F5441E /* Persistable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B262754621C68CE800F5441E /* Persistable.swift */; };
+		B262754921C68F0800F5441E /* SearchHistoryInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B262754821C68F0800F5441E /* SearchHistoryInteractor.swift */; };
+		B262754B21C6958B00F5441E /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = B262754A21C6958B00F5441E /* Container.swift */; };
+		B262755121C6A5AD00F5441E /* SearchHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B262754F21C6A5AD00F5441E /* SearchHistoryViewController.swift */; };
+		B262755221C6A5AD00F5441E /* SearchHistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B262755021C6A5AD00F5441E /* SearchHistoryViewController.xib */; };
 		C78829C7A76E2227FC5696EE /* Pods_PracticeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 825CEC611AE200AEC9940680 /* Pods_PracticeTests.framework */; };
 		FF9A44172FA6F87BB418DC99 /* Pods_Practice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19EA8C779DD064FA64F1F1D4 /* Pods_Practice.framework */; };
 /* End PBXBuildFile section */
@@ -99,6 +105,12 @@
 		B25955BF21C676D2007E0108 /* Queryable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queryable.swift; sourceTree = "<group>"; };
 		B25955C121C67819007E0108 /* RepositoryInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryInteractor.swift; sourceTree = "<group>"; };
 		B262754221C6873700F5441E /* UIAlertController+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+extension.swift"; sourceTree = "<group>"; };
+		B262754421C68C5700F5441E /* RepositorySearchQueryObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositorySearchQueryObject.swift; sourceTree = "<group>"; };
+		B262754621C68CE800F5441E /* Persistable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistable.swift; sourceTree = "<group>"; };
+		B262754821C68F0800F5441E /* SearchHistoryInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryInteractor.swift; sourceTree = "<group>"; };
+		B262754A21C6958B00F5441E /* Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
+		B262754F21C6A5AD00F5441E /* SearchHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryViewController.swift; sourceTree = "<group>"; };
+		B262755021C6A5AD00F5441E /* SearchHistoryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchHistoryViewController.xib; sourceTree = "<group>"; };
 		CCF0D918BD63A899A22B3734 /* ListPresenterTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ListPresenterTests.swift; sourceTree = "<group>"; };
 		D870320F86057DEFAB8801D6 /* Pods_PracticeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PracticeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA5F4ECFEB2E1985D3EE7AC1 /* Pods-Practice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Practice.release.xcconfig"; path = "Pods/Target Support Files/Pods-Practice/Pods-Practice.release.xcconfig"; sourceTree = "<group>"; };
@@ -270,6 +282,7 @@
 			children = (
 				B25955C321C681CA007E0108 /* SearchHistory */,
 				B25955A121C65CC6007E0108 /* GitHubClient */,
+				B262754A21C6958B00F5441E /* Container.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -319,6 +332,7 @@
 			isa = PBXGroup;
 			children = (
 				B25955C121C67819007E0108 /* RepositoryInteractor.swift */,
+				B262754821C68F0800F5441E /* SearchHistoryInteractor.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -328,6 +342,7 @@
 			children = (
 				B25955BC21C673EA007E0108 /* SearchRepositoriesQuery.swift */,
 				B25955BF21C676D2007E0108 /* Queryable.swift */,
+				B262754621C68CE800F5441E /* Persistable.swift */,
 			);
 			path = Query;
 			sourceTree = "<group>";
@@ -335,8 +350,18 @@
 		B25955C321C681CA007E0108 /* SearchHistory */ = {
 			isa = PBXGroup;
 			children = (
+				B262754421C68C5700F5441E /* RepositorySearchQueryObject.swift */,
 			);
 			path = SearchHistory;
+			sourceTree = "<group>";
+		};
+		B262754E21C6A58E00F5441E /* SubView */ = {
+			isa = PBXGroup;
+			children = (
+				B262754F21C6A5AD00F5441E /* SearchHistoryViewController.swift */,
+				B262755021C6A5AD00F5441E /* SearchHistoryViewController.xib */,
+			);
+			path = SubView;
 			sourceTree = "<group>";
 		};
 		C7D45CDAC4179B9B6E507EF3 /* Frameworks */ = {
@@ -352,6 +377,7 @@
 		EA259B767EB0092B474331AF /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B262754E21C6A58E00F5441E /* SubView */,
 				B259559321C653E4007E0108 /* Cell */,
 				101DA9F36BF39E2395E11C7E /* ListViewController.swift */,
 				B259558B21C64ED8007E0108 /* ListViewController.xib */,
@@ -470,6 +496,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B262755221C6A5AD00F5441E /* SearchHistoryViewController.xib in Resources */,
 				B259556321C63815007E0108 /* LaunchScreen.storyboard in Resources */,
 				B259559F21C65968007E0108 /* ListCell.xib in Resources */,
 				B259556021C63815007E0108 /* Assets.xcassets in Resources */,
@@ -598,7 +625,9 @@
 				424B88287142F4587BA432E2 /* RootRouter.swift in Sources */,
 				B25955B221C65CC6007E0108 /* HTTPMethod.swift in Sources */,
 				B25955C221C67819007E0108 /* RepositoryInteractor.swift in Sources */,
+				B262755121C6A5AD00F5441E /* SearchHistoryViewController.swift in Sources */,
 				A61CBDD7784011D7408800B8 /* ListViewController.swift in Sources */,
+				B262754921C68F0800F5441E /* SearchHistoryInteractor.swift in Sources */,
 				B259559221C65077007E0108 /* NSObject+extension.swift in Sources */,
 				B25955B521C65CC6007E0108 /* GitHubAPIError.swift in Sources */,
 				B25955B121C65CC6007E0108 /* GitHubAPI.swift in Sources */,
@@ -609,10 +638,13 @@
 				B25955B321C65CC6007E0108 /* GitHubRequest.swift in Sources */,
 				B25955B021C65CC6007E0108 /* SearchResponse.swift in Sources */,
 				2197F93AB6F6805E6DB30512 /* ListRouter.swift in Sources */,
+				B262754721C68CE800F5441E /* Persistable.swift in Sources */,
 				B25955AE21C65CC6007E0108 /* User.swift in Sources */,
 				26F5CDB6311F2C7F12BC61ED /* ListContract.swift in Sources */,
 				B262754321C6873700F5441E /* UIAlertController+extension.swift in Sources */,
+				B262754B21C6958B00F5441E /* Container.swift in Sources */,
 				B25955B421C65CC6007E0108 /* GitHubClient.swift in Sources */,
+				B262754521C68C5700F5441E /* RepositorySearchQueryObject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
