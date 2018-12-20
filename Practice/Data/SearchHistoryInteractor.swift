@@ -73,9 +73,12 @@ extension SearchHistoryInteractor: SearchHistoryUsecase {
     
     func filter(text: String) {
         let queries: [RepositorySearchQuery] = container.retrieve { _, objects in
-            return objects.filter("keyword contains '\(text.realmEscaped)'").sorted(byKeyPath: "date", ascending: false)
+            return objects
+                .filter("keyword contains %@", text.realmEscaped)
+                .filter("keyword != %@", text.realmEscaped)
+                .sorted(byKeyPath: "date", ascending: false)
         }
-        
+    
         delegate?.interactor(self, didRetrieveHistory: queries)
     }
 }
