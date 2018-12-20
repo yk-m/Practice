@@ -1,0 +1,17 @@
+//
+//  UIColor+extension.swift
+//  Practice
+//
+//  Created by sci01725 on 2018/12/20.
+//  Copyright © 2018 Yuka Matsuo. All rights reserved.
+//
+
+import Foundation
+import UIKit
+
+extension UIColor {
+    
+    static var main: UIColor {
+        return UIColor(named: "Main")!
+    }
+}

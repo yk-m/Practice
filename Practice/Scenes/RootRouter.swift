@@ -17,6 +17,8 @@ class RootRouter {
         let navigationController = UINavigationController(rootViewController: firstView)
         
         window.rootViewController = navigationController
+        window.tintColor = .main
+        
         window.makeKeyAndVisible()
     }
 }
