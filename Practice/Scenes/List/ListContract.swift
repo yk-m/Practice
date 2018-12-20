@@ -22,11 +22,13 @@ protocol ListViewPresentable: class {
 
     func viewDidLoad()
     func willPresentSearchController()
+    func didSelectRow(repository: Repository)
     func filter(text: String)
     func set(searchText: String)
 }
 
 // MARK: - router
 protocol ListWireframe: class {
-
+    
+    func showDetail(repository: Repository)
 }

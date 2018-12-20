@@ -36,4 +36,8 @@ class ListRouter {
 
 extension ListRouter: ListWireframe {
 
+    func showDetail(repository: Repository) {
+        let view = DetailRouter.assembleModules(repository: repository)
+        viewController?.navigationController?.pushViewController(view, animated: true)
+    }
 }

@@ -68,6 +68,11 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
         newCell.set(repository: items[indexPath.row])
         return newCell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presenter.didSelectRow(repository: items[indexPath.row])
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
 
 // MARK: - SearchHistoryViewDelegate

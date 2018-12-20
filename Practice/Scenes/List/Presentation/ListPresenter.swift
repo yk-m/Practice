@@ -46,6 +46,10 @@ extension ListViewPresenter: ListViewPresentable {
         searchHistoryInteractor.retrieve()
     }
     
+    func didSelectRow(repository: Repository) {
+        router.showDetail(repository: repository)
+    }
+    
     func set(searchText: String) {
         self.searchText = searchText
     }
