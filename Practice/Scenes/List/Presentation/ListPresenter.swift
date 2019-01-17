@@ -50,8 +50,16 @@ extension ListViewPresenter: ListViewPresentable {
         router.showDetail(repository: repository)
     }
     
+    func rollbackSearchText() {
+        view?.set(searchText: searchText)
+    }
+    
     func set(searchText: String) {
         self.searchText = searchText
+    }
+    
+    func retrieve() {
+        searchHistoryInteractor.retrieve()
     }
     
     func filter(text: String) {

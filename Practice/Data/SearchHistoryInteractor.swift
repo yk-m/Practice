@@ -72,6 +72,11 @@ extension SearchHistoryInteractor: SearchHistoryUsecase {
     }
     
     func filter(text: String) {
+        guard !text.isEmpty else {
+            retrieve()
+            return
+        }
+        
         let queries: [RepositorySearchQuery] = container.retrieve { _, objects in
             return objects
                 .filter("keyword contains %@", text.realmEscaped)

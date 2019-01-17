@@ -89,32 +89,29 @@ extension ListViewController: UISearchControllerDelegate {
     func willPresentSearchController(_ searchController: UISearchController) {
         presenter.willPresentSearchController()
     }
+    
+    func didDismissSearchController(_ searchController: UISearchController) {
+        presenter.rollbackSearchText()
+    }
 }
 
 // MARK: - UISearchResultsUpdating
 extension ListViewController: UISearchResultsUpdating {
     
     func updateSearchResults(for searchController: UISearchController) {
-        guard let searchText = searchController.searchBar.text else {
-            return
-        }
-        
-        presenter.filter(text: searchText)
+        presenter.filter(text: searchController.searchBar.text ?? "")
     }
 }
 
 // MARK: - UISearchBarDelegate
 extension ListViewController: UISearchBarDelegate {
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         defer {
             searchController.dismiss(animated: true)
         }
-        guard let searchText = searchBar.text,
-            searchText != "" else {
-                return
-        }
         
-        presenter.set(searchText: searchText)
+        presenter.set(searchText: searchBar.text ?? "")
     }
 }
 

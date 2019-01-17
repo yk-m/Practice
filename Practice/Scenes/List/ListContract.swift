@@ -23,7 +23,9 @@ protocol ListViewPresentable: class {
     func viewDidLoad()
     func willPresentSearchController()
     func didSelectRow(repository: Repository)
+    func retrieve()
     func filter(text: String)
+    func rollbackSearchText()
     func set(searchText: String)
 }
 
