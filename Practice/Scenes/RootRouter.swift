@@ -13,10 +13,20 @@ class RootRouter {
     private init() {}
     
     static func showFirstView(window: UIWindow) {
-        let firstView = ListRouter.assembleModules()
-        let navigationController = UINavigationController(rootViewController: firstView)
+        let tabBarView = UITabBarController()
         
-        window.rootViewController = navigationController
+        let listView = ListRouter.assembleModules()
+        listView.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
+        let bookmarkView = BookmarkListRouter.assembleModules()
+        bookmarkView.tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 1)
+        
+        tabBarView.setViewControllers([listView, bookmarkView].map { view in
+            let nav = UINavigationController(rootViewController: view)
+            nav.navigationBar.prefersLargeTitles = true
+            return nav
+        }, animated: true)
+        
+        window.rootViewController = tabBarView
         window.tintColor = .main
         
         window.makeKeyAndVisible()

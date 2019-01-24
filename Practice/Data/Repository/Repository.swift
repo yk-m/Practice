@@ -16,11 +16,18 @@ struct Repository: Decodable {
     let htmlUrl: String
     let owner: User
     
+    let description: String
+    let stargazersCount: Int
+    let watchersCount: Int
+    
     enum CodingKeys: String, CodingKey {
         case id
         case name
         case fullName = "full_name"
         case htmlUrl = "html_url"
         case owner
+        case description
+        case stargazersCount = "stargazers_count"
+        case watchersCount = "watchers_count"
     }
 }

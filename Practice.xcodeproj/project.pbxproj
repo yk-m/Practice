@@ -7,15 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00EFA88659BD7039B35B1881 /* BookmarkListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C506A6C05C987FEC203230 /* BookmarkListPresenter.swift */; };
 		19D98DB6E15ACD3D682EEA75 /* ListPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF0D918BD63A899A22B3734 /* ListPresenterTests.swift */; };
+		21007CF121F956F800BBDDD7 /* BookmarkListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21007CF021F956F800BBDDD7 /* BookmarkListViewController.xib */; };
+		21007CF421F9587300BBDDD7 /* BookmarkInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21007CF321F9587300BBDDD7 /* BookmarkInteractor.swift */; };
+		21007CFB21F95B0900BBDDD7 /* BookmarkObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21007CFA21F95B0900BBDDD7 /* BookmarkObject.swift */; };
 		2107FF437DF8B9D111C1CBBD /* Pods_PracticeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D870320F86057DEFAB8801D6 /* Pods_PracticeUITests.framework */; };
 		2114EBC821CB358A0015F5B1 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2114EBC621CB358A0015F5B1 /* DetailViewController.swift */; };
 		2114EBC921CB358A0015F5B1 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2114EBC721CB358A0015F5B1 /* DetailViewController.xib */; };
 		2114EBCD21CB3D610015F5B1 /* UIColor+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2114EBCC21CB3D610015F5B1 /* UIColor+extension.swift */; };
 		2197F93AB6F6805E6DB30512 /* ListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA1BA5B876878C2310C0592 /* ListRouter.swift */; };
+		21B54E8C21F01E130090355D /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B54E8A21F01E130090355D /* HistoryCell.swift */; };
+		21B54E8D21F01E130090355D /* HistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21B54E8B21F01E130090355D /* HistoryCell.xib */; };
 		26F5CDB6311F2C7F12BC61ED /* ListContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866F313268D18B066EDC3B42 /* ListContract.swift */; };
 		424B88287142F4587BA432E2 /* RootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754085B7AD5B37D68C6B0CA7 /* RootRouter.swift */; };
 		46014F187F1A2FB27ACE0389 /* DetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9C609883E2BA7B9838A6D9 /* DetailRouter.swift */; };
+		837903DE06C27D8E79495894 /* BookmarkListPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805DC006022C1729DC06E44C /* BookmarkListPresenterTests.swift */; };
+		892832AD45F311CB34C41080 /* BookmarkListContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9F193224B628F7450B96DF /* BookmarkListContract.swift */; };
+		8ADC1EA98B4E16AD4F1792FD /* BookmarkListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BAC8CC5FDE2CA2BB6AAB2C /* BookmarkListRouter.swift */; };
 		8CA19856B2A7231E45BB6E79 /* ListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA5494F9128CBECF66B8F3D /* ListPresenter.swift */; };
 		A61CBDD7784011D7408800B8 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101DA9F36BF39E2395E11C7E /* ListViewController.swift */; };
 		B259555921C63813007E0108 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B259555821C63813007E0108 /* AppDelegate.swift */; };
@@ -50,6 +59,7 @@
 		B27D19C821C6C1AA00409751 /* String+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27D19C721C6C1AA00409751 /* String+extension.swift */; };
 		C78829C7A76E2227FC5696EE /* Pods_PracticeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 825CEC611AE200AEC9940680 /* Pods_PracticeTests.framework */; };
 		C80BAE5D345897A9B0CCF5F6 /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E82AB0BDFE1E2776B7212B3 /* DetailPresenter.swift */; };
+		CC6E1F055EC60D85D97A6B09 /* BookmarkListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E26AC1DD3AE71DA3189D0FA /* BookmarkListViewController.swift */; };
 		EEDA17EA4F0391F001577081 /* DetailPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615890CD93D8645EC673E22E /* DetailPresenterTests.swift */; };
 		F97BF6C40DF7EFB9F1C940D8 /* DetailContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E819C3283967BF245A720F0 /* DetailContract.swift */; };
 		FF9A44172FA6F87BB418DC99 /* Pods_Practice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19EA8C779DD064FA64F1F1D4 /* Pods_Practice.framework */; };
@@ -75,18 +85,27 @@
 /* Begin PBXFileReference section */
 		075F35C4C847A7968949DE66 /* Pods-PracticeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PracticeUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PracticeUITests/Pods-PracticeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		101DA9F36BF39E2395E11C7E /* ListViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		19C506A6C05C987FEC203230 /* BookmarkListPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BookmarkListPresenter.swift; sourceTree = "<group>"; };
 		19EA8C779DD064FA64F1F1D4 /* Pods_Practice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Practice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		21007CF021F956F800BBDDD7 /* BookmarkListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookmarkListViewController.xib; sourceTree = "<group>"; };
+		21007CF321F9587300BBDDD7 /* BookmarkInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkInteractor.swift; sourceTree = "<group>"; };
+		21007CFA21F95B0900BBDDD7 /* BookmarkObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkObject.swift; sourceTree = "<group>"; };
 		2114EBC621CB358A0015F5B1 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		2114EBC721CB358A0015F5B1 /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 		2114EBCC21CB3D610015F5B1 /* UIColor+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+extension.swift"; sourceTree = "<group>"; };
+		21B54E8A21F01E130090355D /* HistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCell.swift; sourceTree = "<group>"; };
+		21B54E8B21F01E130090355D /* HistoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryCell.xib; sourceTree = "<group>"; };
 		2BA2FD0B1755957A23A16A73 /* Pods-PracticeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PracticeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PracticeTests/Pods-PracticeTests.release.xcconfig"; sourceTree = "<group>"; };
 		3438F2AD5A339A1F1347FD92 /* Pods-PracticeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PracticeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PracticeTests/Pods-PracticeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		3E26AC1DD3AE71DA3189D0FA /* BookmarkListViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BookmarkListViewController.swift; sourceTree = "<group>"; };
 		5E82AB0BDFE1E2776B7212B3 /* DetailPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
 		615890CD93D8645EC673E22E /* DetailPresenterTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DetailPresenterTests.swift; sourceTree = "<group>"; };
 		6E819C3283967BF245A720F0 /* DetailContract.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DetailContract.swift; sourceTree = "<group>"; };
 		754085B7AD5B37D68C6B0CA7 /* RootRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RootRouter.swift; sourceTree = "<group>"; };
+		805DC006022C1729DC06E44C /* BookmarkListPresenterTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BookmarkListPresenterTests.swift; sourceTree = "<group>"; };
 		825CEC611AE200AEC9940680 /* Pods_PracticeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PracticeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		866F313268D18B066EDC3B42 /* ListContract.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ListContract.swift; sourceTree = "<group>"; };
+		8A9F193224B628F7450B96DF /* BookmarkListContract.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BookmarkListContract.swift; sourceTree = "<group>"; };
 		9899AD9263819B4A0A971D11 /* Pods-PracticeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PracticeUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PracticeUITests/Pods-PracticeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		ACA1BA5B876878C2310C0592 /* ListRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ListRouter.swift; sourceTree = "<group>"; };
 		AEC764029484908512A4BD11 /* Pods-Practice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Practice.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Practice/Pods-Practice.debug.xcconfig"; sourceTree = "<group>"; };
@@ -128,6 +147,7 @@
 		B27D19C721C6C1AA00409751 /* String+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+extension.swift"; sourceTree = "<group>"; };
 		CCF0D918BD63A899A22B3734 /* ListPresenterTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ListPresenterTests.swift; sourceTree = "<group>"; };
 		D870320F86057DEFAB8801D6 /* Pods_PracticeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PracticeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1BAC8CC5FDE2CA2BB6AAB2C /* BookmarkListRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BookmarkListRouter.swift; sourceTree = "<group>"; };
 		EE9C609883E2BA7B9838A6D9 /* DetailRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DetailRouter.swift; sourceTree = "<group>"; };
 		FA5F4ECFEB2E1985D3EE7AC1 /* Pods-Practice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Practice.release.xcconfig"; path = "Pods/Target Support Files/Pods-Practice/Pods-Practice.release.xcconfig"; sourceTree = "<group>"; };
 		FBA5494F9128CBECF66B8F3D /* ListPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ListPresenter.swift; sourceTree = "<group>"; };
@@ -167,8 +187,73 @@
 				754085B7AD5B37D68C6B0CA7 /* RootRouter.swift */,
 				47D115B4587295A1EAA3EA37 /* List */,
 				AE6E621E38C2673592293FC8 /* Detail */,
+				367BE88A6654861C7794BDDA /* BookmarkList */,
 			);
 			path = Scenes;
+			sourceTree = "<group>";
+		};
+		21007CF521F95A4A00BBDDD7 /* Bookmark */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Bookmark;
+			sourceTree = "<group>";
+		};
+		21007CF621F95A7100BBDDD7 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				B262754621C68CE800F5441E /* Persistable.swift */,
+				B262754A21C6958B00F5441E /* Container.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
+		21007CF721F95A8F00BBDDD7 /* SearchHistory */ = {
+			isa = PBXGroup;
+			children = (
+				B262754821C68F0800F5441E /* SearchHistoryInteractor.swift */,
+				B262754421C68C5700F5441E /* RepositorySearchQueryObject.swift */,
+			);
+			path = SearchHistory;
+			sourceTree = "<group>";
+		};
+		21007CF821F95AB300BBDDD7 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				B25955A321C65CC6007E0108 /* User.swift */,
+				B25955A421C65CC6007E0108 /* Repository.swift */,
+				B25955A521C65CC6007E0108 /* SearchResponse.swift */,
+				B25955C121C67819007E0108 /* RepositoryInteractor.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		21007CF921F95AD300BBDDD7 /* Bookmark */ = {
+			isa = PBXGroup;
+			children = (
+				21007CF321F9587300BBDDD7 /* BookmarkInteractor.swift */,
+				21007CFA21F95B0900BBDDD7 /* BookmarkObject.swift */,
+			);
+			path = Bookmark;
+			sourceTree = "<group>";
+		};
+		21B54E8521F01C020090355D /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				21B54E8A21F01E130090355D /* HistoryCell.swift */,
+				21B54E8B21F01E130090355D /* HistoryCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		367BE88A6654861C7794BDDA /* BookmarkList */ = {
+			isa = PBXGroup;
+			children = (
+				D54597BBD204DA2537D71F77 /* Presentation */,
+				E1BAC8CC5FDE2CA2BB6AAB2C /* BookmarkListRouter.swift */,
+				8A9F193224B628F7450B96DF /* BookmarkListContract.swift */,
+			);
+			path = BookmarkList;
 			sourceTree = "<group>";
 		};
 		4343B856D1F11BEEE12D669C /* Presentation */ = {
@@ -189,6 +274,15 @@
 				866F313268D18B066EDC3B42 /* ListContract.swift */,
 			);
 			path = List;
+			sourceTree = "<group>";
+		};
+		4EC23805EA7766CA31DA8565 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3E26AC1DD3AE71DA3189D0FA /* BookmarkListViewController.swift */,
+				21007CF021F956F800BBDDD7 /* BookmarkListViewController.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		5793CF6EDC66DCDC13FFADA2 /* Presentation */ = {
@@ -319,9 +413,10 @@
 		B25955A021C65CA8007E0108 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				21007CF621F95A7100BBDDD7 /* Realm */,
+				21007CF521F95A4A00BBDDD7 /* Bookmark */,
 				B25955C321C681CA007E0108 /* SearchHistory */,
 				B25955A121C65CC6007E0108 /* GitHubClient */,
-				B262754A21C6958B00F5441E /* Container.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -330,22 +425,11 @@
 			isa = PBXGroup;
 			children = (
 				B25955BB21C673B8007E0108 /* Query */,
-				B25955A221C65CC6007E0108 /* Response */,
 				B25955A621C65CC6007E0108 /* Request */,
 				B25955AA21C65CC6007E0108 /* GitHubClient.swift */,
 				B25955AB21C65CC6007E0108 /* Error */,
 			);
 			path = GitHubClient;
-			sourceTree = "<group>";
-		};
-		B25955A221C65CC6007E0108 /* Response */ = {
-			isa = PBXGroup;
-			children = (
-				B25955A321C65CC6007E0108 /* User.swift */,
-				B25955A421C65CC6007E0108 /* Repository.swift */,
-				B25955A521C65CC6007E0108 /* SearchResponse.swift */,
-			);
-			path = Response;
 			sourceTree = "<group>";
 		};
 		B25955A621C65CC6007E0108 /* Request */ = {
@@ -370,8 +454,9 @@
 		B25955B721C65CDA007E0108 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				B25955C121C67819007E0108 /* RepositoryInteractor.swift */,
-				B262754821C68F0800F5441E /* SearchHistoryInteractor.swift */,
+				21007CF921F95AD300BBDDD7 /* Bookmark */,
+				21007CF821F95AB300BBDDD7 /* Repository */,
+				21007CF721F95A8F00BBDDD7 /* SearchHistory */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -381,7 +466,6 @@
 			children = (
 				B25955BC21C673EA007E0108 /* SearchRepositoriesQuery.swift */,
 				B25955BF21C676D2007E0108 /* Queryable.swift */,
-				B262754621C68CE800F5441E /* Persistable.swift */,
 			);
 			path = Query;
 			sourceTree = "<group>";
@@ -389,7 +473,6 @@
 		B25955C321C681CA007E0108 /* SearchHistory */ = {
 			isa = PBXGroup;
 			children = (
-				B262754421C68C5700F5441E /* RepositorySearchQueryObject.swift */,
 			);
 			path = SearchHistory;
 			sourceTree = "<group>";
@@ -397,6 +480,7 @@
 		B262754E21C6A58E00F5441E /* SubView */ = {
 			isa = PBXGroup;
 			children = (
+				21B54E8521F01C020090355D /* Cell */,
 				B262754F21C6A5AD00F5441E /* SearchHistoryViewController.swift */,
 				B262755021C6A5AD00F5441E /* SearchHistoryViewController.xib */,
 			);
@@ -411,6 +495,16 @@
 				D870320F86057DEFAB8801D6 /* Pods_PracticeUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D54597BBD204DA2537D71F77 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				4EC23805EA7766CA31DA8565 /* View */,
+				19C506A6C05C987FEC203230 /* BookmarkListPresenter.swift */,
+				805DC006022C1729DC06E44C /* BookmarkListPresenterTests.swift */,
+			);
+			path = Presentation;
 			sourceTree = "<group>";
 		};
 		EA259B767EB0092B474331AF /* View */ = {
@@ -544,7 +638,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21007CF121F956F800BBDDD7 /* BookmarkListViewController.xib in Resources */,
 				B262755221C6A5AD00F5441E /* SearchHistoryViewController.xib in Resources */,
+				21B54E8D21F01E130090355D /* HistoryCell.xib in Resources */,
 				2114EBC921CB358A0015F5B1 /* DetailViewController.xib in Resources */,
 				B259556321C63815007E0108 /* LaunchScreen.storyboard in Resources */,
 				B259559F21C65968007E0108 /* ListCell.xib in Resources */,
@@ -657,6 +753,7 @@
 				B25955BD21C673EA007E0108 /* SearchRepositoriesQuery.swift in Sources */,
 				424B88287142F4587BA432E2 /* RootRouter.swift in Sources */,
 				B25955B221C65CC6007E0108 /* HTTPMethod.swift in Sources */,
+				21B54E8C21F01E130090355D /* HistoryCell.swift in Sources */,
 				B25955C221C67819007E0108 /* RepositoryInteractor.swift in Sources */,
 				2114EBC821CB358A0015F5B1 /* DetailViewController.swift in Sources */,
 				B262755121C6A5AD00F5441E /* SearchHistoryViewController.swift in Sources */,
@@ -678,12 +775,18 @@
 				26F5CDB6311F2C7F12BC61ED /* ListContract.swift in Sources */,
 				B262754321C6873700F5441E /* UIAlertController+extension.swift in Sources */,
 				B262754B21C6958B00F5441E /* Container.swift in Sources */,
+				21007CF421F9587300BBDDD7 /* BookmarkInteractor.swift in Sources */,
 				B25955B421C65CC6007E0108 /* GitHubClient.swift in Sources */,
 				B262754521C68C5700F5441E /* RepositorySearchQueryObject.swift in Sources */,
 				C80BAE5D345897A9B0CCF5F6 /* DetailPresenter.swift in Sources */,
 				2114EBCD21CB3D610015F5B1 /* UIColor+extension.swift in Sources */,
 				46014F187F1A2FB27ACE0389 /* DetailRouter.swift in Sources */,
 				F97BF6C40DF7EFB9F1C940D8 /* DetailContract.swift in Sources */,
+				CC6E1F055EC60D85D97A6B09 /* BookmarkListViewController.swift in Sources */,
+				21007CFB21F95B0900BBDDD7 /* BookmarkObject.swift in Sources */,
+				00EFA88659BD7039B35B1881 /* BookmarkListPresenter.swift in Sources */,
+				8ADC1EA98B4E16AD4F1792FD /* BookmarkListRouter.swift in Sources */,
+				892832AD45F311CB34C41080 /* BookmarkListContract.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -694,6 +797,7 @@
 				B259556E21C63815007E0108 /* PracticeTests.swift in Sources */,
 				19D98DB6E15ACD3D682EEA75 /* ListPresenterTests.swift in Sources */,
 				EEDA17EA4F0391F001577081 /* DetailPresenterTests.swift in Sources */,
+				837903DE06C27D8E79495894 /* BookmarkListPresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -857,6 +961,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 847H8QH385;
 				INFOPLIST_FILE = Practice/Application/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yuka.Practice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -873,6 +978,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 847H8QH385;
 				INFOPLIST_FILE = Practice/Application/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yuka.Practice;
 				PRODUCT_NAME = "$(TARGET_NAME)";

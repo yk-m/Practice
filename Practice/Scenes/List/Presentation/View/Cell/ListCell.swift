@@ -10,7 +10,9 @@ import UIKit
 
 class ListCell: UITableViewCell {
 
-    @IBOutlet private weak var label: UILabel!
+    @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var authorLabel: UILabel!
+    @IBOutlet private weak var descriptionLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,6 +26,8 @@ class ListCell: UITableViewCell {
     }
     
     func set(repository: Repository) {
-        label.text = repository.fullName
+        nameLabel.text = repository.fullName
+        authorLabel.text = String(repository.owner.id)
+        descriptionLabel.text = repository.description
     }
 }

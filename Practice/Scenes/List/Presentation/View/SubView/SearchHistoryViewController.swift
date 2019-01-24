@@ -20,7 +20,7 @@ class SearchHistoryViewController: UIViewController {
     
     @IBOutlet private weak var tableView: UITableView! {
         didSet {
-            tableView.register(UITableViewCell.self, forCellReuseIdentifier: UITableViewCell.className)
+            tableView.register(UINib(nibName: HistoryCell.className, bundle: nil), forCellReuseIdentifier: HistoryCell.className)
             
             tableView.delegate = self
             tableView.dataSource = self
@@ -51,8 +51,8 @@ extension SearchHistoryViewController: UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let newCell = tableView.dequeueReusableCell(with: UITableViewCell.self, for: indexPath)
-        newCell.textLabel?.text = items[indexPath.row].keyword
+        let newCell = tableView.dequeueReusableCell(with: HistoryCell.self, for: indexPath) as! HistoryCell
+        newCell.set(keyword: items[indexPath.row].keyword)
         return newCell
     }
     

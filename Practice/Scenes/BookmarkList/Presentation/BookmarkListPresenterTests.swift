@@ -1,17 +1,17 @@
 //
-//  ListPresenterTests.swift
+//  BookmarkListPresenterTests.swift
 //  Practice
 //
-//  Created by Yuka Matsuo on 16/12/2018.
-//  Copyright © 2018 yuka. All rights reserved.
+//  Created by Yuka Matsuo on 24/01/2019.
+//  Copyright © 2019 yuka. All rights reserved.
 //
 
 import XCTest
 @testable import Practice
 
-class ListPresenterTest: XCTestCase {
+class BookmarkListPresenterTest: XCTestCase {
 
-    var presenter: ListViewPresentable!
+    var presenter: BookmarkListViewPresentable!
     let view = MockViewController()
     let interactor = MockInteractor()
     let router = MockRouter()
@@ -20,7 +20,7 @@ class ListPresenterTest: XCTestCase {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
 
-        presenter = ListViewPresenter(view: view, interactor: interactor, router: router)
+        presenter = BookmarkListViewPresenter(view: view, interactor: interactor, router: router)
     }
 
     override func tearDown() {
@@ -29,15 +29,15 @@ class ListPresenterTest: XCTestCase {
     }
 
     // MARK: - mock
-    class MockViewController: ListView {
+    class MockViewController: BookmarkListView {
 
     }
 
-    class MockInteractor: ListUsecase {
+    class MockInteractor: BookmarkListUsecase {
 
     }
 
-    class MockRouter: ListWireframe {
+    class MockRouter: BookmarkListWireframe {
 
     }
 }
