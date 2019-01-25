@@ -12,25 +12,28 @@ import WebKit
 class DetailViewController: UIViewController {
     
     var presenter: DetailViewPresentable!
+    private var defaultNavigationBarBackgroundColor: UIColor? = nil
     
     @IBOutlet private weak var webView: WKWebView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         presenter.viewDidLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        navigationController?.setNavigationBarHidden(true, animated: animated)
+        defaultNavigationBarBackgroundColor = UINavigationBar.appearance().tintColor
+        UINavigationBar.appearance().tintColor = .dark
+        navigationController?.navigationBar.prefersLargeTitles = false
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        navigationController?.setNavigationBarHidden(false, animated: animated)
+        UINavigationBar.appearance().tintColor = defaultNavigationBarBackgroundColor
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
 }
 
@@ -44,4 +47,3 @@ extension DetailViewController: DetailView {
         webView.load(urlRequest)
     }
 }
-

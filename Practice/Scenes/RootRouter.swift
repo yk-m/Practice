@@ -14,7 +14,7 @@ class RootRouter {
     
     static func showFirstView(window: UIWindow) {
         let tabBarView = UITabBarController()
-        
+
         let listView = ListRouter.assembleModules()
         listView.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
         let bookmarkView = BookmarkListRouter.assembleModules()

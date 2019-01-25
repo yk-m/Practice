@@ -28,7 +28,6 @@
 		8CA19856B2A7231E45BB6E79 /* ListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA5494F9128CBECF66B8F3D /* ListPresenter.swift */; };
 		A61CBDD7784011D7408800B8 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101DA9F36BF39E2395E11C7E /* ListViewController.swift */; };
 		B259555921C63813007E0108 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B259555821C63813007E0108 /* AppDelegate.swift */; };
-		B259556021C63815007E0108 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B259555F21C63815007E0108 /* Assets.xcassets */; };
 		B259556321C63815007E0108 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B259556121C63815007E0108 /* LaunchScreen.storyboard */; };
 		B259556E21C63815007E0108 /* PracticeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B259556D21C63815007E0108 /* PracticeTests.swift */; };
 		B259557921C63815007E0108 /* PracticeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B259557821C63815007E0108 /* PracticeUITests.swift */; };
@@ -57,6 +56,10 @@
 		B262755121C6A5AD00F5441E /* SearchHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B262754F21C6A5AD00F5441E /* SearchHistoryViewController.swift */; };
 		B262755221C6A5AD00F5441E /* SearchHistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B262755021C6A5AD00F5441E /* SearchHistoryViewController.xib */; };
 		B27D19C821C6C1AA00409751 /* String+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27D19C721C6C1AA00409751 /* String+extension.swift */; };
+		B28AFD0021FAB1A100CB672A /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B28AFCFF21FAB1A100CB672A /* Colors.xcassets */; };
+		B28AFD0221FAB1E300CB672A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B28AFD0121FAB1E300CB672A /* Images.xcassets */; };
+		B2B4BD4A21FA9BA100BF3304 /* UIView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B4BD4921FA9BA100BF3304 /* UIView+extension.swift */; };
+		B2B4BD4C21FA9F4200BF3304 /* UIImageView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B4BD4B21FA9F4200BF3304 /* UIImageView+extension.swift */; };
 		C78829C7A76E2227FC5696EE /* Pods_PracticeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 825CEC611AE200AEC9940680 /* Pods_PracticeTests.framework */; };
 		C80BAE5D345897A9B0CCF5F6 /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E82AB0BDFE1E2776B7212B3 /* DetailPresenter.swift */; };
 		CC6E1F055EC60D85D97A6B09 /* BookmarkListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E26AC1DD3AE71DA3189D0FA /* BookmarkListViewController.swift */; };
@@ -111,7 +114,6 @@
 		AEC764029484908512A4BD11 /* Pods-Practice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Practice.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Practice/Pods-Practice.debug.xcconfig"; sourceTree = "<group>"; };
 		B259555521C63813007E0108 /* Practice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Practice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B259555821C63813007E0108 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B259555F21C63815007E0108 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B259556221C63815007E0108 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B259556421C63815007E0108 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B259556921C63815007E0108 /* PracticeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PracticeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -145,6 +147,10 @@
 		B262754F21C6A5AD00F5441E /* SearchHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryViewController.swift; sourceTree = "<group>"; };
 		B262755021C6A5AD00F5441E /* SearchHistoryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchHistoryViewController.xib; sourceTree = "<group>"; };
 		B27D19C721C6C1AA00409751 /* String+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+extension.swift"; sourceTree = "<group>"; };
+		B28AFCFF21FAB1A100CB672A /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Colors.xcassets; path = Assets.xcassets/Colors.xcassets; sourceTree = "<group>"; };
+		B28AFD0121FAB1E300CB672A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		B2B4BD4921FA9BA100BF3304 /* UIView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+extension.swift"; sourceTree = "<group>"; };
+		B2B4BD4B21FA9F4200BF3304 /* UIImageView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+extension.swift"; sourceTree = "<group>"; };
 		CCF0D918BD63A899A22B3734 /* ListPresenterTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ListPresenterTests.swift; sourceTree = "<group>"; };
 		D870320F86057DEFAB8801D6 /* Pods_PracticeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PracticeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1BAC8CC5FDE2CA2BB6AAB2C /* BookmarkListRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BookmarkListRouter.swift; sourceTree = "<group>"; };
@@ -384,7 +390,8 @@
 		B259558721C63AF6007E0108 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				B259555F21C63815007E0108 /* Assets.xcassets */,
+				B28AFCFF21FAB1A100CB672A /* Colors.xcassets */,
+				B28AFD0121FAB1E300CB672A /* Images.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -397,6 +404,8 @@
 				B262754221C6873700F5441E /* UIAlertController+extension.swift */,
 				B27D19C721C6C1AA00409751 /* String+extension.swift */,
 				2114EBCC21CB3D610015F5B1 /* UIColor+extension.swift */,
+				B2B4BD4921FA9BA100BF3304 /* UIView+extension.swift */,
+				B2B4BD4B21FA9F4200BF3304 /* UIImageView+extension.swift */,
 			);
 			path = Environment;
 			sourceTree = "<group>";
@@ -638,13 +647,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B28AFD0221FAB1E300CB672A /* Images.xcassets in Resources */,
 				21007CF121F956F800BBDDD7 /* BookmarkListViewController.xib in Resources */,
 				B262755221C6A5AD00F5441E /* SearchHistoryViewController.xib in Resources */,
+				B28AFD0021FAB1A100CB672A /* Colors.xcassets in Resources */,
 				21B54E8D21F01E130090355D /* HistoryCell.xib in Resources */,
 				2114EBC921CB358A0015F5B1 /* DetailViewController.xib in Resources */,
 				B259556321C63815007E0108 /* LaunchScreen.storyboard in Resources */,
 				B259559F21C65968007E0108 /* ListCell.xib in Resources */,
-				B259556021C63815007E0108 /* Assets.xcassets in Resources */,
 				B259558C21C64ED8007E0108 /* ListViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -727,11 +737,13 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Practice/Pods-Practice-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 			);
@@ -771,6 +783,7 @@
 				B25955B021C65CC6007E0108 /* SearchResponse.swift in Sources */,
 				2197F93AB6F6805E6DB30512 /* ListRouter.swift in Sources */,
 				B262754721C68CE800F5441E /* Persistable.swift in Sources */,
+				B2B4BD4A21FA9BA100BF3304 /* UIView+extension.swift in Sources */,
 				B25955AE21C65CC6007E0108 /* User.swift in Sources */,
 				26F5CDB6311F2C7F12BC61ED /* ListContract.swift in Sources */,
 				B262754321C6873700F5441E /* UIAlertController+extension.swift in Sources */,
@@ -785,6 +798,7 @@
 				CC6E1F055EC60D85D97A6B09 /* BookmarkListViewController.swift in Sources */,
 				21007CFB21F95B0900BBDDD7 /* BookmarkObject.swift in Sources */,
 				00EFA88659BD7039B35B1881 /* BookmarkListPresenter.swift in Sources */,
+				B2B4BD4C21FA9F4200BF3304 /* UIImageView+extension.swift in Sources */,
 				8ADC1EA98B4E16AD4F1792FD /* BookmarkListRouter.swift in Sources */,
 				892832AD45F311CB34C41080 /* BookmarkListContract.swift in Sources */,
 			);

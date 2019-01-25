@@ -7,6 +7,7 @@ target 'Practice' do
 
   # Pods for Practice
   pod 'RealmSwift'
+  pod 'Kingfisher'
 
   target 'PracticeTests' do
     inherit! :search_paths

@@ -14,4 +14,12 @@ extension UIColor {
     static var main: UIColor {
         return UIColor(named: "Main")!
     }
+    
+    static var lightGray: UIColor {
+        return UIColor(named: "Light Gray")!
+    }
+    
+    static var dark: UIColor {
+        return UIColor(named: "Dark")!
+    }
 }
