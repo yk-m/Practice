@@ -12,7 +12,6 @@ import WebKit
 class DetailViewController: UIViewController {
     
     var presenter: DetailViewPresentable!
-    private var defaultNavigationBarBackgroundColor: UIColor? = nil
     
     @IBOutlet private weak var webView: WKWebView! {
         didSet {
@@ -29,15 +28,12 @@ class DetailViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        defaultNavigationBarBackgroundColor = UINavigationBar.appearance().tintColor
-        UINavigationBar.appearance().tintColor = .dark
         navigationController?.navigationBar.prefersLargeTitles = false
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        UINavigationBar.appearance().tintColor = defaultNavigationBarBackgroundColor
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     

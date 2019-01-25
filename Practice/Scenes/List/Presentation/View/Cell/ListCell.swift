@@ -14,9 +14,10 @@ class ListCell: UITableViewCell {
     @IBOutlet private weak var wrapperView: UIView!
     
     @IBOutlet private weak var nameLabel: UILabel!
-    @IBOutlet private weak var authorLabel: UILabel!
-    @IBOutlet private weak var authorImage: UIImageView!
     @IBOutlet private weak var descriptionLabel: UILabel!
+    @IBOutlet private weak var languageLabel: UILabel!
+    @IBOutlet private weak var updateAtLabel: UILabel!
+    @IBOutlet private weak var authorImage: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,11 +35,16 @@ class ListCell: UITableViewCell {
         }
     }
     
-    func set(repository: Repository) {
+    func set(repository: Repository, dateFormatter: DateFormatter) {
         nameLabel.text = repository.fullName
-        authorLabel.text = String(repository.owner.id)
+        descriptionLabel.text = repository.description
+        languageLabel.text = repository.language
+        if let date = repository.dateOfUpdate {
+            updateAtLabel.text = dateFormatter.string(from: date)
+        } else {
+            updateAtLabel.text = "---"
+        }
         authorImage.kf.indicatorType = .activity
         authorImage.setImage(with: URL(string: repository.owner.avatar_url))
-        descriptionLabel.text = repository.description
     }
 }

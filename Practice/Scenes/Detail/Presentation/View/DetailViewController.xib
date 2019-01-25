@@ -37,7 +37,7 @@
                         <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9i9-vs-GPz">
                             <rect key="frame" x="0.0" y="0.0" width="125" height="51.5"/>
                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ZCQ-BW-6QY">
-                                <rect key="frame" x="0.0" y="0.0" width="125" height="51"/>
+                                <rect key="frame" x="0.0" y="0.0" width="125" height="51.5"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="GlO-OG-gb7">

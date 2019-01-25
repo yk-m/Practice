@@ -29,6 +29,13 @@ class BookmarkListViewController: UIViewController {
         }
     }
     
+    private let dateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.dateFormat = "yyyy/MM/dd hh:ss:mm"
+        return dateFormatter
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -51,7 +58,7 @@ extension BookmarkListViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let newCell = tableView.dequeueReusableCell(with: ListCell.self, for: indexPath)
-        newCell.set(repository: items[indexPath.row])
+        newCell.set(repository: items[indexPath.row], dateFormatter: dateFormatter)
         return newCell
     }
     

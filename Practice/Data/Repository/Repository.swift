@@ -14,20 +14,35 @@ struct Repository: Decodable {
     let name: String
     let fullName: String  // 詳細ページ表示用に追加
     let htmlUrl: String
-    let owner: User
-    
+    let language: String
     let description: String
+    let updatedAt: String
     let stargazersCount: Int
     let watchersCount: Int
+    
+    let owner: User
     
     enum CodingKeys: String, CodingKey {
         case id
         case name
         case fullName = "full_name"
         case htmlUrl = "html_url"
-        case owner
+        case language
+        case updatedAt = "updated_at"
         case description
         case stargazersCount = "stargazers_count"
         case watchersCount = "watchers_count"
+        case owner
+    }
+    
+    private let dateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'hh:ss:mmZ"
+        return dateFormatter
+    }()
+    
+    var dateOfUpdate: Date? {
+        return dateFormatter.date(from: updatedAt)
     }
 }
