@@ -6,12 +6,14 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailViewController" customModule="Practice" customModuleProvider="target">
             <connections>
+                <outlet property="indicator" destination="MhQ-Te-BLQ" id="SJj-Fg-NAy"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="webView" destination="8Mh-RT-hjN" id="2eh-0h-hhj"/>
             </connections>
@@ -29,10 +31,58 @@
                         <wkPreferences key="preferences"/>
                     </wkWebViewConfiguration>
                 </wkWebView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MhQ-Te-BLQ">
+                    <rect key="frame" x="125" y="308" width="125" height="51.5"/>
+                    <subviews>
+                        <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9i9-vs-GPz">
+                            <rect key="frame" x="0.0" y="0.0" width="125" height="51.5"/>
+                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ZCQ-BW-6QY">
+                                <rect key="frame" x="0.0" y="0.0" width="125" height="51"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="GlO-OG-gb7">
+                                        <rect key="frame" x="16" y="16" width="93" height="20"/>
+                                        <subviews>
+                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="BA0-8j-dsZ">
+                                                <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                            </activityIndicatorView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOADING" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ros-1v-C8Z">
+                                                <rect key="frame" x="28" y="1" width="65" height="18"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" name="Gray"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="GlO-OG-gb7" firstAttribute="leading" secondItem="ZCQ-BW-6QY" secondAttribute="leading" constant="16" id="VgF-ah-AqB"/>
+                                    <constraint firstAttribute="bottom" secondItem="GlO-OG-gb7" secondAttribute="bottom" constant="16" id="blz-FK-SeO"/>
+                                    <constraint firstItem="GlO-OG-gb7" firstAttribute="top" secondItem="ZCQ-BW-6QY" secondAttribute="top" constant="16" id="tdr-Bf-r2O"/>
+                                    <constraint firstAttribute="trailing" secondItem="GlO-OG-gb7" secondAttribute="trailing" constant="16" id="uNg-Et-awG"/>
+                                </constraints>
+                            </view>
+                            <blurEffect style="light"/>
+                        </visualEffectView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="9i9-vs-GPz" secondAttribute="bottom" id="G2p-Us-dP1"/>
+                        <constraint firstItem="9i9-vs-GPz" firstAttribute="top" secondItem="MhQ-Te-BLQ" secondAttribute="top" id="Hb0-Ht-MaM"/>
+                        <constraint firstAttribute="trailing" secondItem="9i9-vs-GPz" secondAttribute="trailing" id="SXN-D2-5jJ"/>
+                        <constraint firstItem="9i9-vs-GPz" firstAttribute="leading" secondItem="MhQ-Te-BLQ" secondAttribute="leading" id="T8q-2i-smO"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="16"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="8Mh-RT-hjN" secondAttribute="trailing" id="35A-jd-iMZ"/>
+                <constraint firstItem="MhQ-Te-BLQ" firstAttribute="centerX" secondItem="8Mh-RT-hjN" secondAttribute="centerX" id="DWu-dt-xhH"/>
+                <constraint firstItem="MhQ-Te-BLQ" firstAttribute="centerY" secondItem="8Mh-RT-hjN" secondAttribute="centerY" id="ZfA-RU-ZIa"/>
                 <constraint firstItem="8Mh-RT-hjN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="tMP-iI-dIi"/>
                 <constraint firstItem="8Mh-RT-hjN" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="bottom" id="tyA-vh-dMe"/>
                 <constraint firstItem="8Mh-RT-hjN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="upe-mw-TWc"/>
@@ -41,4 +91,9 @@
             <point key="canvasLocation" x="138.40000000000001" y="152.47376311844079"/>
         </view>
     </objects>
+    <resources>
+        <namedColor name="Gray">
+            <color red="0.61960784313725492" green="0.61960784313725492" blue="0.61960784313725492" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

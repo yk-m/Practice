@@ -14,7 +14,12 @@ class DetailViewController: UIViewController {
     var presenter: DetailViewPresentable!
     private var defaultNavigationBarBackgroundColor: UIColor? = nil
     
-    @IBOutlet private weak var webView: WKWebView!
+    @IBOutlet private weak var webView: WKWebView! {
+        didSet {
+            webView.navigationDelegate = self
+        }
+    }
+    @IBOutlet private weak var indicator: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +40,10 @@ class DetailViewController: UIViewController {
         UINavigationBar.appearance().tintColor = defaultNavigationBarBackgroundColor
         navigationController?.navigationBar.prefersLargeTitles = true
     }
+    
+    func showIndicator(show: Bool) {
+        indicator.isHidden = !show
+    }
 }
 
 extension DetailViewController: DetailView {
@@ -45,5 +54,20 @@ extension DetailViewController: DetailView {
     
     func load(request urlRequest: URLRequest) {
         webView.load(urlRequest)
+    }
+}
+
+extension DetailViewController: WKNavigationDelegate {
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        showIndicator(show: false)
+    }
+    
+    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        showIndicator(show: true)
+    }
+    
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+        showIndicator(show: false)
     }
 }
