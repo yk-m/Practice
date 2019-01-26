@@ -8,20 +8,11 @@
 
 import UIKit
 
-class ListViewController: UIViewController {
+class ListViewController: UITableViewController {
 
     var presenter: ListViewPresentable!
     
-    @IBOutlet private weak var tableView: UITableView! {
-        didSet {
-            tableView.register(cellType: ListCell.self)
-            
-            tableView.delegate = self
-            tableView.dataSource = self
-        }
-    }
-    
-    private lazy var searchHistoryView = SearchHistoryRouter.assembleModules(delegate: self)
+    private lazy var searchHistoryView = SearchHistoryRouter.assembleModules(delegate: presenter.searchHisotryDelegate)
     private lazy var searchController: UISearchController = searchHistoryView.searchController
     
     private var items: [Repository] = [] {
@@ -39,6 +30,8 @@ class ListViewController: UIViewController {
         return dateFormatter
     }()
     
+    private var shouldRefreshOnViewDidAppear: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -49,6 +42,43 @@ class ListViewController: UIViewController {
         navigationItem.hidesSearchBarWhenScrolling = false
         
         searchHistoryView.listViewDidLoad()
+        
+        tableView.register(cellType: ListCell.self)
+        
+        edgesForExtendedLayout = .all
+        tableView.contentInsetAdjustmentBehavior = .always
+        
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refresh(sender:)), for: .valueChanged)
+        tableView.refreshControl = refreshControl
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if shouldRefreshOnViewDidAppear {
+            tableView.refreshControl?.beginRefreshing()
+            shouldRefreshOnViewDidAppear = false
+        }
+    }
+    
+    @objc func refresh(sender: UIRefreshControl) {
+        presenter.refresh()
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return items.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let newCell = tableView.dequeueReusableCell(with: ListCell.self, for: indexPath)
+        newCell.set(repository: items[indexPath.row], dateFormatter: dateFormatter)
+        return newCell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presenter.didSelectRow(repository: items[indexPath.row])
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
@@ -57,38 +87,22 @@ extension ListViewController: ListView {
     
     func set(repositories: [Repository]) {
         items = repositories
+        tableView.refreshControl?.endRefreshing()
+    }
+    
+    func beginRefreshing() {
+        searchController.dismiss(animated: true)
+        
+        presenter.refresh()
+        guard let refreshControl = tableView.refreshControl else {
+            shouldRefreshOnViewDidAppear = true
+            return
+        }
+        refreshControl.beginRefreshing()
     }
     
     func presentAlert(title: String, message: String) {
         let alert = UIAlertController.singleBtnAlert(with: title, message: message, completion: nil)
         present(alert, animated: true, completion: nil)
-    }
-}
-
-// MARK: - UITableViewDelegate, UITableViewDataSource
-extension ListViewController: UITableViewDelegate, UITableViewDataSource {
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let newCell = tableView.dequeueReusableCell(with: ListCell.self, for: indexPath)
-        newCell.set(repository: items[indexPath.row], dateFormatter: dateFormatter)
-        return newCell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        presenter.didSelectRow(repository: items[indexPath.row])
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
-}
-
-// MARK: - SearchHistoryViewDelegate
-extension ListViewController: SearchHisotryDelegate {
-    
-    func searchHistory(_ searchHistory: SearchHistoryRouter, didSelect searchText: String?) {
-        searchController.dismiss(animated: true)
-        presenter.set(searchText: searchText)
     }
 }

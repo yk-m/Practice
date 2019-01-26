@@ -12,14 +12,17 @@ import Foundation
 protocol ListView: class {
     
     func set(repositories: [Repository])
+    func beginRefreshing()
     func presentAlert(title: String, message: String)
 }
 
 // MARK: - presenter
 protocol ListViewPresentable: class {
     
+    var searchHisotryDelegate: SearchHisotryDelegate { get }
+    
     func didSelectRow(repository: Repository)
-    func set(searchText: String?)
+    func refresh()
 }
 
 // MARK: - router

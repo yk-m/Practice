@@ -13,6 +13,8 @@ class ListViewPresenter {
     private weak var view: ListView?
     private let router: ListWireframe
     private let repositoryInteractor: RepositoryUsecase
+    
+    private var searchText: String? = nil
 
     init(view: ListView,
          router: ListWireframe,
@@ -25,15 +27,19 @@ class ListViewPresenter {
 
 extension ListViewPresenter: ListViewPresentable {
     
+    var searchHisotryDelegate: SearchHisotryDelegate {
+        return self
+    }
+    
     func didSelectRow(repository: Repository) {
         router.showDetail(repository: repository)
     }
     
-    func set(searchText: String?) {
+    func refresh() {
         guard let searchText = searchText,
             !searchText.isEmpty else {
-            view?.set(repositories: [])
-            return
+                view?.set(repositories: [])
+                return
         }
         
         let query = RepositorySearchQuery(keyword: searchText)
@@ -41,6 +47,20 @@ extension ListViewPresenter: ListViewPresentable {
     }
 }
 
+// MARK: - SearchHistoryViewDelegate
+extension ListViewPresenter: SearchHisotryDelegate {
+    
+    func searchHistory(_ searchHistory: SearchHistoryRouter, didSelect searchText: String?) {
+        self.searchText = searchText
+        guard searchText != nil else {
+            view?.set(repositories: [])
+            return
+        }
+        view?.beginRefreshing()
+    }
+}
+
+// MARK: - RepositoryInteractorDelegate
 extension ListViewPresenter: RepositoryInteractorDelegate {
     
     func interactor(_ interactor: RepositoryUsecase, didRetrieveRepositories repositories: [Repository]) {
@@ -52,6 +72,8 @@ extension ListViewPresenter: RepositoryInteractorDelegate {
     }
     
     func interactor(_ interactor: RepositoryUsecase, didFailWithError error: GitHubClientError) {
+        view?.set(repositories: [])
+        
         switch error {
         case .connectionError(_):
             view?.presentAlert(title: "通信に失敗しました", message: "ネットワーク接続を確認してください。")
