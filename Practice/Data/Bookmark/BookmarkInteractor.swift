@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 protocol BookmarkUsecase {
     
@@ -23,10 +24,10 @@ class BookmarkInteractor {
     
     weak var delegate: BookmarkInteractorDelegate?
     
-    let container: Container
+    private let realm: Realm
     
-    init(container: Container = try! Container()) {
-        self.container = container
+    init(realm: Realm = try! Realm()) {
+        self.realm = realm
     }
 }
 

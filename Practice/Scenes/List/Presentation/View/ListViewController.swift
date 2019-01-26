@@ -74,7 +74,8 @@ class ListViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let newCell = tableView.dequeueReusableCell(with: ListCell.self, for: indexPath)
-        newCell.set(repository: items[indexPath.row], dateFormatter: dateFormatter)
+        newCell.set(indexPath: indexPath, repository: items[indexPath.row], dateFormatter: dateFormatter)
+        newCell.delegate = self
         return newCell
     }
     
@@ -106,5 +107,13 @@ extension ListViewController: ListView {
     func presentAlert(title: String, message: String) {
         let alert = UIAlertController.singleBtnAlert(with: title, message: message, completion: nil)
         present(alert, animated: true, completion: nil)
+    }
+}
+
+extension ListViewController: ListCellDelegate {
+    
+    func listCell(_ listCell: ListCell, didTouchUpInsideAt indexPath: IndexPath) {
+        listCell.selectBookmarkButton()
+        tableView.reloadRows(at: [indexPath], with: .none)
     }
 }

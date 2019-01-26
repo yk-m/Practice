@@ -1,5 +1,5 @@
 //
-//  BookmarkObject.swift
+//  Bookmark.swift
 //  Practice
 //
 //  Created by sci01725 on 2019/01/24.

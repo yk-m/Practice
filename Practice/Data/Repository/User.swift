@@ -7,10 +7,11 @@
 //
 
 import Foundation
+import RealmSwift
 
-struct User: Decodable {
+class User: Object, Decodable {
     
-    let id: Int
-    let login: String
-    let avatar_url: String
+    @objc dynamic private(set) var id: Int
+    @objc dynamic private(set) var login: String
+    @objc dynamic private(set) var avatar_url: String
 }

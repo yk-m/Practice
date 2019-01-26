@@ -9,7 +9,14 @@
 import UIKit
 import Kingfisher
 
+protocol ListCellDelegate: class {
+    
+    func listCell(_ listCell: ListCell, didTouchUpInsideAt indexPath: IndexPath)
+}
+
 class ListCell: UITableViewCell {
+    
+    weak var delegate: ListCellDelegate?
     
     @IBOutlet private weak var wrapperView: UIView!
     
@@ -18,6 +25,16 @@ class ListCell: UITableViewCell {
     @IBOutlet private weak var languageLabel: UILabel!
     @IBOutlet private weak var updateAtLabel: UILabel!
     @IBOutlet private weak var authorImage: UIImageView!
+    @IBOutlet private weak var bookmarkButton: UIButton!
+    @IBAction func buttonTouchUpInside(_ sender: Any) {
+        guard let indexPath = indexPath else {
+            return
+        }
+        
+        delegate?.listCell(self, didTouchUpInsideAt: indexPath)
+    }
+    
+    private var indexPath: IndexPath?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -35,9 +52,11 @@ class ListCell: UITableViewCell {
         }
     }
     
-    func set(repository: Repository, dateFormatter: DateFormatter) {
+    func set(indexPath: IndexPath, repository: Repository, dateFormatter: DateFormatter) {
+        self.indexPath = indexPath
+        
         nameLabel.text = repository.fullName
-        descriptionLabel.text = repository.description ?? "---"
+        descriptionLabel.text = repository.repoDescription ?? "---"
         languageLabel.text = repository.language ?? "---"
         if let date = repository.dateOfUpdate {
             updateAtLabel.text = dateFormatter.string(from: date)
@@ -46,5 +65,13 @@ class ListCell: UITableViewCell {
         }
         authorImage.kf.indicatorType = .activity
         authorImage.setImage(with: URL(string: repository.owner.avatar_url))
+    }
+    
+    func selectBookmarkButton() {
+        bookmarkButton.isSelected = true
+    }
+    
+    func deselectBookmarkButton() {
+        bookmarkButton.isSelected = false
     }
 }

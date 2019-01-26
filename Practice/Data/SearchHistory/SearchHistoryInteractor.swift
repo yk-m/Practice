@@ -28,46 +28,49 @@ class SearchHistoryInteractor {
     
     weak var delegate: SearchHistoryInteractorDelegate?
     
-    let container: Container
+    private let realm: Realm
     
-    init(container: Container = try! Container()) {
-        self.container = container
+    init(realm: Realm = try! Realm()) {
+        self.realm = realm
     }
 }
 
 extension SearchHistoryInteractor: SearchHistoryUsecase {
     
     func add(query: RepositorySearchQuery) {
-        let queries: [RepositorySearchQuery] = container.retrieve { realm, objects in
-            if let searchQuery = objects.filter("keyword = %@", query.keyword).first {
-                try? realm.write {
-                    searchQuery.date = Date()
-                }
-            } else {
-                try? realm.write {
-                    realm.add(query.managedObject(), update: false)
-                }
-            }
+        query.searchAt = Date()
+        
+        if let before = realm
+            .objects(RepositorySearchQuery.self)
+            .first(where: { $0.keyword == query.keyword }) {
             
-            return objects.sorted(byKeyPath: "date", ascending: false)
+            try? realm.write {
+                before.searchAt = Date()
+            }
+        } else {
+            try? realm.write {
+                realm.add(query, update: false)
+            }
         }
         
-        delegate?.interactor(self, didUpdate: queries)
+        let queries = realm
+            .objects(RepositorySearchQuery.self)
+            .sorted(byKeyPath: "searchAt", ascending: false)
+        delegate?.interactor(self, didUpdate: Array(queries))
     }
     
     func retrieve() {
-        let queries: [RepositorySearchQuery] = container.retrieve { _, objects in
-            return objects.sorted(byKeyPath: "date", ascending: false)
-        }
-        
-        delegate?.interactor(self, didRetrieveHistory: queries)
+        let queries = realm
+            .objects(RepositorySearchQuery.self)
+            .sorted(byKeyPath: "searchAt", ascending: false)
+        delegate?.interactor(self, didRetrieveHistory: Array(queries))
     }
     
     func retrieveLatestRecord() {
-        let query: RepositorySearchQuery? = container.retrieve { _, objects in
-            return objects.sorted(byKeyPath: "date", ascending: false).first
-        }
-        
+        let query = realm
+            .objects(RepositorySearchQuery.self)
+            .sorted(byKeyPath: "searchAt", ascending: false)
+            .first
         delegate?.interactor(self, didRetrieveLatestRecord: query)
     }
     
@@ -77,13 +80,12 @@ extension SearchHistoryInteractor: SearchHistoryUsecase {
             return
         }
         
-        let queries: [RepositorySearchQuery] = container.retrieve { _, objects in
-            return objects
-                .filter("keyword contains %@", text.realmEscaped)
-                .filter("keyword != %@", text.realmEscaped)
-                .sorted(byKeyPath: "date", ascending: false)
-        }
-    
-        delegate?.interactor(self, didRetrieveHistory: queries)
+        let queries = realm
+            .objects(RepositorySearchQuery.self)
+            .filter("keyword contains %@", text.realmEscaped)
+            .filter("keyword != %@", text.realmEscaped)
+            .sorted(byKeyPath: "searchAt", ascending: false)
+        
+        delegate?.interactor(self, didRetrieveHistory: Array(queries))
     }
 }

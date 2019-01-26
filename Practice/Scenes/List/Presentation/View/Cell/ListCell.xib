@@ -57,8 +57,12 @@
                                 <constraint firstAttribute="height" constant="32" id="HNj-FV-Ict"/>
                                 <constraint firstAttribute="width" constant="32" id="yIm-xG-n0r"/>
                             </constraints>
-                            <state key="normal" title="Button" image="Love outline"/>
+                            <state key="normal" image="Love outline"/>
                             <state key="selected" image="Love"/>
+                            <state key="highlighted" image="Love outline"/>
+                            <connections>
+                                <action selector="buttonTouchUpInside:" destination="iN0-l3-epB" eventType="touchUpInside" id="fcH-K7-sLh"/>
+                            </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sBR-Kj-0V3">
                             <rect key="frame" x="84" y="195" width="33" height="16"/>
@@ -116,6 +120,7 @@
             </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="authorImage" destination="q1O-Aj-dfs" id="whB-EN-Yme"/>
+                <outlet property="bookmarkButton" destination="F7T-rA-8Ca" id="nAG-iT-ObQ"/>
                 <outlet property="descriptionLabel" destination="XMc-Zn-bal" id="SVx-Wd-aSd"/>
                 <outlet property="languageLabel" destination="a85-Qd-usf" id="IY9-kZ-kua"/>
                 <outlet property="nameLabel" destination="Jcw-M7-HB8" id="clJ-ED-ixi"/>
