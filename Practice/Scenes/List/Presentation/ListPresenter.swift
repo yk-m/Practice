@@ -13,57 +13,31 @@ class ListViewPresenter {
     private weak var view: ListView?
     private let router: ListWireframe
     private let repositoryInteractor: RepositoryUsecase
-    private let searchHistoryInteractor: SearchHistoryUsecase
-    
-    private var searchText = "" {
-        didSet {
-            view?.set(searchText: searchText)
-            
-            let query = RepositorySearchQuery(keyword: searchText)
-            searchHistoryInteractor.add(query: query)
-            repositoryInteractor.retrieve(query: query)
-        }
-    }
 
     init(view: ListView,
          router: ListWireframe,
-         repositoryInteractor: RepositoryUsecase,
-         searchHistoryInteractor: SearchHistoryUsecase) {
+         repositoryInteractor: RepositoryUsecase) {
         self.router = router
         self.view = view
         self.repositoryInteractor = repositoryInteractor
-        self.searchHistoryInteractor = searchHistoryInteractor
     }
 }
 
 extension ListViewPresenter: ListViewPresentable {
-
-    func viewDidLoad() {
-        searchHistoryInteractor.retrieveLatestRecord()
-    }
-    
-    func willPresentSearchController() {
-        searchHistoryInteractor.retrieve()
-    }
     
     func didSelectRow(repository: Repository) {
         router.showDetail(repository: repository)
     }
     
-    func rollbackSearchText() {
-        view?.set(searchText: searchText)
-    }
-    
-    func set(searchText: String) {
-        self.searchText = searchText
-    }
-    
-    func retrieve() {
-        searchHistoryInteractor.retrieve()
-    }
-    
-    func filter(text: String) {
-        searchHistoryInteractor.filter(text: text)
+    func set(searchText: String?) {
+        guard let searchText = searchText,
+            !searchText.isEmpty else {
+            view?.set(repositories: [])
+            return
+        }
+        
+        let query = RepositorySearchQuery(keyword: searchText)
+        repositoryInteractor.retrieve(query: query)
     }
 }
 
@@ -71,6 +45,10 @@ extension ListViewPresenter: RepositoryInteractorDelegate {
     
     func interactor(_ interactor: RepositoryUsecase, didRetrieveRepositories repositories: [Repository]) {
         view?.set(repositories: repositories)
+        
+        if repositories.count == 0 {
+            view?.presentAlert(title: "見つかりませんでした", message: "キーワードを変えてお試しください。")
+        }
     }
     
     func interactor(_ interactor: RepositoryUsecase, didFailWithError error: GitHubClientError) {
@@ -82,24 +60,5 @@ extension ListViewPresenter: RepositoryInteractorDelegate {
         case .apiError(let error):
             view?.presentAlert(title: "エラーが発生しました", message: error.message)
         }
-    }
-}
-
-extension ListViewPresenter: SearchHistoryInteractorDelegate {
-    
-    func interactor(_ interactor: SearchHistoryUsecase, didUpdate queries: [RepositorySearchQuery]) {
-        view?.set(queries: queries)
-    }
-    
-    func interactor(_ interactor: SearchHistoryUsecase, didRetrieveHistory queries: [RepositorySearchQuery]) {
-        view?.set(queries: queries)
-    }
-    
-    func interactor(_ interactor: SearchHistoryUsecase, didRetrieveLatestRecord query: RepositorySearchQuery?) {
-        guard let searchText = query?.keyword else {
-            return
-        }
-        
-        self.searchText = searchText
     }
 }

@@ -10,23 +10,16 @@ import Foundation
 
 // MARK: - view
 protocol ListView: class {
-
-    func set(searchText: String)
-    func set(queries: [RepositorySearchQuery])
+    
     func set(repositories: [Repository])
     func presentAlert(title: String, message: String)
 }
 
 // MARK: - presenter
 protocol ListViewPresentable: class {
-
-    func viewDidLoad()
-    func willPresentSearchController()
+    
     func didSelectRow(repository: Repository)
-    func retrieve()
-    func filter(text: String)
-    func rollbackSearchText()
-    func set(searchText: String)
+    func set(searchText: String?)
 }
 
 // MARK: - router

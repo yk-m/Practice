@@ -14,8 +14,8 @@ struct Repository: Decodable {
     let name: String
     let fullName: String  // 詳細ページ表示用に追加
     let htmlUrl: String
-    let language: String
-    let description: String
+    let language: String?
+    let description: String?
     let updatedAt: String
     let stargazersCount: Int
     let watchersCount: Int
@@ -38,7 +38,7 @@ struct Repository: Decodable {
     private let dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'hh:ss:mmZ"
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:ss:mmZ"
         return dateFormatter
     }()
     

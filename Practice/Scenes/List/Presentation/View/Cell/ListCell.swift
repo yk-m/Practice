@@ -37,8 +37,8 @@ class ListCell: UITableViewCell {
     
     func set(repository: Repository, dateFormatter: DateFormatter) {
         nameLabel.text = repository.fullName
-        descriptionLabel.text = repository.description
-        languageLabel.text = repository.language
+        descriptionLabel.text = repository.description ?? "---"
+        languageLabel.text = repository.language ?? "---"
         if let date = repository.dateOfUpdate {
             updateAtLabel.text = dateFormatter.string(from: date)
         } else {

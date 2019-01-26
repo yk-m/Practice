@@ -21,19 +21,8 @@ class ListViewController: UIViewController {
         }
     }
     
-    private lazy var searchHistoryView: SearchHistoryViewController = {
-        let view = SearchHistoryViewController()
-        view.delegate = self
-        return view
-    }()
-    
-    private lazy var searchController: UISearchController = {
-        let searchController = UISearchController(searchResultsController: searchHistoryView)
-        searchController.delegate = self
-        searchController.searchResultsUpdater = self
-        searchController.searchBar.delegate = self
-        return searchController
-    }()
+    private lazy var searchHistoryView = SearchHistoryRouter.assembleModules(delegate: self)
+    private lazy var searchController: UISearchController = searchHistoryView.searchController
     
     private var items: [Repository] = [] {
         didSet {
@@ -46,7 +35,7 @@ class ListViewController: UIViewController {
     private let dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-        dateFormatter.dateFormat = "yyyy/MM/dd hh:ss:mm"
+        dateFormatter.dateFormat = "yyyy/M/d HH:ss"
         return dateFormatter
     }()
     
@@ -58,8 +47,21 @@ class ListViewController: UIViewController {
         navigationItem.title = "Search"
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
+        
+        searchHistoryView.listViewDidLoad()
+    }
+}
 
-        presenter.viewDidLoad()
+// MARK: - ListView
+extension ListViewController: ListView {
+    
+    func set(repositories: [Repository]) {
+        items = repositories
+    }
+    
+    func presentAlert(title: String, message: String) {
+        let alert = UIAlertController.singleBtnAlert(with: title, message: message, completion: nil)
+        present(alert, animated: true, completion: nil)
     }
 }
 
@@ -83,62 +85,10 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 // MARK: - SearchHistoryViewDelegate
-extension ListViewController: SearchHistoryViewDelegate {
+extension ListViewController: SearchHisotryDelegate {
     
-    func view(_ view: SearchHistoryViewController, didSelectRowAt query: RepositorySearchQuery) {
-        searchController.searchBar.text = query.keyword
-    }
-}
-
-// MARK: - UISearchControllerDelegate
-extension ListViewController: UISearchControllerDelegate {
-    
-    func willPresentSearchController(_ searchController: UISearchController) {
-        presenter.willPresentSearchController()
-    }
-    
-    func didDismissSearchController(_ searchController: UISearchController) {
-        presenter.rollbackSearchText()
-    }
-}
-
-// MARK: - UISearchResultsUpdating
-extension ListViewController: UISearchResultsUpdating {
-    
-    func updateSearchResults(for searchController: UISearchController) {
-        presenter.filter(text: searchController.searchBar.text ?? "")
-    }
-}
-
-// MARK: - UISearchBarDelegate
-extension ListViewController: UISearchBarDelegate {
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        defer {
-            searchController.dismiss(animated: true)
-        }
-        
-        presenter.set(searchText: searchBar.text ?? "")
-    }
-}
-
-// MARK: - ListView
-extension ListViewController: ListView {
-    
-    func set(searchText: String) {
-        searchController.searchBar.text = searchText
-    }
-    
-    func set(queries: [RepositorySearchQuery]) {
-        searchHistoryView.set(queries: queries)
-    }
-    
-    func set(repositories: [Repository]) {
-        items = repositories
-    }
-    
-    func presentAlert(title: String, message: String) {
-        let alert = UIAlertController.singleBtnAlert(with: title, message: message, completion: nil)
-        present(alert, animated: true, completion: nil)
+    func searchHistory(_ searchHistory: SearchHistoryRouter, didSelect searchText: String?) {
+        searchController.dismiss(animated: true)
+        presenter.set(searchText: searchText)
     }
 }

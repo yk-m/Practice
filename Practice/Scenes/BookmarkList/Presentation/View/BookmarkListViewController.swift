@@ -32,7 +32,7 @@ class BookmarkListViewController: UIViewController {
     private let dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-        dateFormatter.dateFormat = "yyyy/MM/dd hh:ss:mm"
+        dateFormatter.dateFormat = "yyyy/M/d H:s"
         return dateFormatter
     }()
     

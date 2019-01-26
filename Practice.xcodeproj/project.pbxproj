@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		00EFA88659BD7039B35B1881 /* BookmarkListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C506A6C05C987FEC203230 /* BookmarkListPresenter.swift */; };
+		05FF01EF006080A08BCDDD6D /* SearchHistoryContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACCEC66E2E3FBC95781C59D /* SearchHistoryContract.swift */; };
 		19D98DB6E15ACD3D682EEA75 /* ListPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF0D918BD63A899A22B3734 /* ListPresenterTests.swift */; };
 		21007CF121F956F800BBDDD7 /* BookmarkListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21007CF021F956F800BBDDD7 /* BookmarkListViewController.xib */; };
 		21007CF421F9587300BBDDD7 /* BookmarkInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21007CF321F9587300BBDDD7 /* BookmarkInteractor.swift */; };
@@ -21,7 +22,9 @@
 		21B54E8D21F01E130090355D /* HistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21B54E8B21F01E130090355D /* HistoryCell.xib */; };
 		26F5CDB6311F2C7F12BC61ED /* ListContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866F313268D18B066EDC3B42 /* ListContract.swift */; };
 		424B88287142F4587BA432E2 /* RootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754085B7AD5B37D68C6B0CA7 /* RootRouter.swift */; };
+		45BF7FB66486ADF31FB99652 /* SearchHistoryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5652F52513563F455E3B62 /* SearchHistoryPresenter.swift */; };
 		46014F187F1A2FB27ACE0389 /* DetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9C609883E2BA7B9838A6D9 /* DetailRouter.swift */; };
+		4AB02790AE98A8E7C6298AB1 /* SearchHistoryPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 970D6CDEA7EB45FAA0E8BDBE /* SearchHistoryPresenterTests.swift */; };
 		837903DE06C27D8E79495894 /* BookmarkListPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805DC006022C1729DC06E44C /* BookmarkListPresenterTests.swift */; };
 		892832AD45F311CB34C41080 /* BookmarkListContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9F193224B628F7450B96DF /* BookmarkListContract.swift */; };
 		8ADC1EA98B4E16AD4F1792FD /* BookmarkListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BAC8CC5FDE2CA2BB6AAB2C /* BookmarkListRouter.swift */; };
@@ -63,6 +66,7 @@
 		C78829C7A76E2227FC5696EE /* Pods_PracticeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 825CEC611AE200AEC9940680 /* Pods_PracticeTests.framework */; };
 		C80BAE5D345897A9B0CCF5F6 /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E82AB0BDFE1E2776B7212B3 /* DetailPresenter.swift */; };
 		CC6E1F055EC60D85D97A6B09 /* BookmarkListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E26AC1DD3AE71DA3189D0FA /* BookmarkListViewController.swift */; };
+		EC02FD9C164EF5B979BB07A0 /* SearchHistoryRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B4CB335FB7AF569518F8BD /* SearchHistoryRouter.swift */; };
 		EEDA17EA4F0391F001577081 /* DetailPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615890CD93D8645EC673E22E /* DetailPresenterTests.swift */; };
 		F97BF6C40DF7EFB9F1C940D8 /* DetailContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E819C3283967BF245A720F0 /* DetailContract.swift */; };
 		FF9A44172FA6F87BB418DC99 /* Pods_Practice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19EA8C779DD064FA64F1F1D4 /* Pods_Practice.framework */; };
@@ -101,14 +105,17 @@
 		2BA2FD0B1755957A23A16A73 /* Pods-PracticeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PracticeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PracticeTests/Pods-PracticeTests.release.xcconfig"; sourceTree = "<group>"; };
 		3438F2AD5A339A1F1347FD92 /* Pods-PracticeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PracticeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PracticeTests/Pods-PracticeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3E26AC1DD3AE71DA3189D0FA /* BookmarkListViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BookmarkListViewController.swift; sourceTree = "<group>"; };
+		3E5652F52513563F455E3B62 /* SearchHistoryPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SearchHistoryPresenter.swift; sourceTree = "<group>"; };
 		5E82AB0BDFE1E2776B7212B3 /* DetailPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
 		615890CD93D8645EC673E22E /* DetailPresenterTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DetailPresenterTests.swift; sourceTree = "<group>"; };
 		6E819C3283967BF245A720F0 /* DetailContract.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DetailContract.swift; sourceTree = "<group>"; };
 		754085B7AD5B37D68C6B0CA7 /* RootRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RootRouter.swift; sourceTree = "<group>"; };
+		7ACCEC66E2E3FBC95781C59D /* SearchHistoryContract.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SearchHistoryContract.swift; sourceTree = "<group>"; };
 		805DC006022C1729DC06E44C /* BookmarkListPresenterTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BookmarkListPresenterTests.swift; sourceTree = "<group>"; };
 		825CEC611AE200AEC9940680 /* Pods_PracticeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PracticeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		866F313268D18B066EDC3B42 /* ListContract.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ListContract.swift; sourceTree = "<group>"; };
 		8A9F193224B628F7450B96DF /* BookmarkListContract.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BookmarkListContract.swift; sourceTree = "<group>"; };
+		970D6CDEA7EB45FAA0E8BDBE /* SearchHistoryPresenterTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SearchHistoryPresenterTests.swift; sourceTree = "<group>"; };
 		9899AD9263819B4A0A971D11 /* Pods-PracticeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PracticeUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PracticeUITests/Pods-PracticeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		ACA1BA5B876878C2310C0592 /* ListRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ListRouter.swift; sourceTree = "<group>"; };
 		AEC764029484908512A4BD11 /* Pods-Practice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Practice.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Practice/Pods-Practice.debug.xcconfig"; sourceTree = "<group>"; };
@@ -152,6 +159,7 @@
 		B2B4BD4921FA9BA100BF3304 /* UIView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+extension.swift"; sourceTree = "<group>"; };
 		B2B4BD4B21FA9F4200BF3304 /* UIImageView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+extension.swift"; sourceTree = "<group>"; };
 		CCF0D918BD63A899A22B3734 /* ListPresenterTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ListPresenterTests.swift; sourceTree = "<group>"; };
+		D3B4CB335FB7AF569518F8BD /* SearchHistoryRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SearchHistoryRouter.swift; sourceTree = "<group>"; };
 		D870320F86057DEFAB8801D6 /* Pods_PracticeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PracticeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1BAC8CC5FDE2CA2BB6AAB2C /* BookmarkListRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BookmarkListRouter.swift; sourceTree = "<group>"; };
 		EE9C609883E2BA7B9838A6D9 /* DetailRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DetailRouter.swift; sourceTree = "<group>"; };
@@ -194,15 +202,9 @@
 				47D115B4587295A1EAA3EA37 /* List */,
 				AE6E621E38C2673592293FC8 /* Detail */,
 				367BE88A6654861C7794BDDA /* BookmarkList */,
+				E703E0540950FADFA44E29DF /* SearchHistory */,
 			);
 			path = Scenes;
-			sourceTree = "<group>";
-		};
-		21007CF521F95A4A00BBDDD7 /* Bookmark */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Bookmark;
 			sourceTree = "<group>";
 		};
 		21007CF621F95A7100BBDDD7 /* Realm */ = {
@@ -282,6 +284,16 @@
 			path = List;
 			sourceTree = "<group>";
 		};
+		4C491D3B2501F0226C10CB6E /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				88C700B504594B142793355C /* View */,
+				3E5652F52513563F455E3B62 /* SearchHistoryPresenter.swift */,
+				970D6CDEA7EB45FAA0E8BDBE /* SearchHistoryPresenterTests.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
 		4EC23805EA7766CA31DA8565 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -312,6 +324,16 @@
 				9899AD9263819B4A0A971D11 /* Pods-PracticeUITests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		88C700B504594B142793355C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				21B54E8521F01C020090355D /* Cell */,
+				B262754F21C6A5AD00F5441E /* SearchHistoryViewController.swift */,
+				B262755021C6A5AD00F5441E /* SearchHistoryViewController.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		AE6E621E38C2673592293FC8 /* Detail */ = {
@@ -423,8 +445,6 @@
 			isa = PBXGroup;
 			children = (
 				21007CF621F95A7100BBDDD7 /* Realm */,
-				21007CF521F95A4A00BBDDD7 /* Bookmark */,
-				B25955C321C681CA007E0108 /* SearchHistory */,
 				B25955A121C65CC6007E0108 /* GitHubClient */,
 			);
 			path = Services;
@@ -479,23 +499,6 @@
 			path = Query;
 			sourceTree = "<group>";
 		};
-		B25955C321C681CA007E0108 /* SearchHistory */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = SearchHistory;
-			sourceTree = "<group>";
-		};
-		B262754E21C6A58E00F5441E /* SubView */ = {
-			isa = PBXGroup;
-			children = (
-				21B54E8521F01C020090355D /* Cell */,
-				B262754F21C6A5AD00F5441E /* SearchHistoryViewController.swift */,
-				B262755021C6A5AD00F5441E /* SearchHistoryViewController.xib */,
-			);
-			path = SubView;
-			sourceTree = "<group>";
-		};
 		C7D45CDAC4179B9B6E507EF3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -516,10 +519,19 @@
 			path = Presentation;
 			sourceTree = "<group>";
 		};
+		E703E0540950FADFA44E29DF /* SearchHistory */ = {
+			isa = PBXGroup;
+			children = (
+				4C491D3B2501F0226C10CB6E /* Presentation */,
+				D3B4CB335FB7AF569518F8BD /* SearchHistoryRouter.swift */,
+				7ACCEC66E2E3FBC95781C59D /* SearchHistoryContract.swift */,
+			);
+			path = SearchHistory;
+			sourceTree = "<group>";
+		};
 		EA259B767EB0092B474331AF /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B262754E21C6A58E00F5441E /* SubView */,
 				B259559321C653E4007E0108 /* Cell */,
 				101DA9F36BF39E2395E11C7E /* ListViewController.swift */,
 				B259558B21C64ED8007E0108 /* ListViewController.xib */,
@@ -801,6 +813,9 @@
 				B2B4BD4C21FA9F4200BF3304 /* UIImageView+extension.swift in Sources */,
 				8ADC1EA98B4E16AD4F1792FD /* BookmarkListRouter.swift in Sources */,
 				892832AD45F311CB34C41080 /* BookmarkListContract.swift in Sources */,
+				45BF7FB66486ADF31FB99652 /* SearchHistoryPresenter.swift in Sources */,
+				EC02FD9C164EF5B979BB07A0 /* SearchHistoryRouter.swift in Sources */,
+				05FF01EF006080A08BCDDD6D /* SearchHistoryContract.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -812,6 +827,7 @@
 				19D98DB6E15ACD3D682EEA75 /* ListPresenterTests.swift in Sources */,
 				EEDA17EA4F0391F001577081 /* DetailPresenterTests.swift in Sources */,
 				837903DE06C27D8E79495894 /* BookmarkListPresenterTests.swift in Sources */,
+				4AB02790AE98A8E7C6298AB1 /* SearchHistoryPresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
