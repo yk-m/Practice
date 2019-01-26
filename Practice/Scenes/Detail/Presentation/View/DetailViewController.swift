@@ -29,12 +29,15 @@ class DetailViewController: UIViewController {
         super.viewWillAppear(animated)
         
         navigationController?.navigationBar.prefersLargeTitles = false
+        navigationController?.hidesBarsOnSwipe = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.hidesBarsOnSwipe = false
+        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     func showIndicator(show: Bool) {
