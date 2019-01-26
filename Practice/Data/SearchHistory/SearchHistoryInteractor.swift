@@ -29,6 +29,7 @@ class SearchHistoryInteractor {
     weak var delegate: SearchHistoryInteractorDelegate?
     
     private let realm: Realm
+    private lazy var objects: Results<RepositorySearchQuery> = realm.objects(RepositorySearchQuery.self)
     
     init(realm: Realm = try! Realm()) {
         self.realm = realm
@@ -40,9 +41,7 @@ extension SearchHistoryInteractor: SearchHistoryUsecase {
     func add(query: RepositorySearchQuery) {
         query.searchAt = Date()
         
-        if let before = realm
-            .objects(RepositorySearchQuery.self)
-            .first(where: { $0.keyword == query.keyword }) {
+        if let before = objects.first(where: { $0.keyword == query.keyword }) {
             
             try? realm.write {
                 before.searchAt = Date()
@@ -53,22 +52,17 @@ extension SearchHistoryInteractor: SearchHistoryUsecase {
             }
         }
         
-        let queries = realm
-            .objects(RepositorySearchQuery.self)
-            .sorted(byKeyPath: "searchAt", ascending: false)
+        let queries = objects.sorted(byKeyPath: "searchAt", ascending: false)
         delegate?.interactor(self, didUpdate: Array(queries))
     }
     
     func retrieve() {
-        let queries = realm
-            .objects(RepositorySearchQuery.self)
-            .sorted(byKeyPath: "searchAt", ascending: false)
+        let queries = objects.sorted(byKeyPath: "searchAt", ascending: false)
         delegate?.interactor(self, didRetrieveHistory: Array(queries))
     }
     
     func retrieveLatestRecord() {
-        let query = realm
-            .objects(RepositorySearchQuery.self)
+        let query = objects
             .sorted(byKeyPath: "searchAt", ascending: false)
             .first
         delegate?.interactor(self, didRetrieveLatestRecord: query)
@@ -80,8 +74,7 @@ extension SearchHistoryInteractor: SearchHistoryUsecase {
             return
         }
         
-        let queries = realm
-            .objects(RepositorySearchQuery.self)
+        let queries = objects
             .filter("keyword contains %@", text.realmEscaped)
             .filter("keyword != %@", text.realmEscaped)
             .sorted(byKeyPath: "searchAt", ascending: false)
