@@ -15,6 +15,10 @@ extension UIColor {
         return UIColor(named: "Main")!
     }
     
+    static var almostWhite: UIColor {
+        return UIColor(named: "Almost White")!
+    }
+    
     static var lightGray: UIColor {
         return UIColor(named: "Light Gray")!
     }

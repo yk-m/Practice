@@ -44,6 +44,8 @@ class ListViewController: UITableViewController {
         searchHistoryView.listViewDidLoad()
         
         tableView.register(cellType: ListCell.self)
+        tableView.separatorStyle = .none
+        tableView.backgroundColor = .almostWhite
         
         edgesForExtendedLayout = .all
         tableView.contentInsetAdjustmentBehavior = .always
