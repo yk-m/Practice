@@ -12,12 +12,14 @@ import RealmSwift
 protocol BookmarkUsecase {
     
     func add(repository: Repository)
-    func retrieve()
+    func remove(repository: Repository)
+    func isBookmarked(repository: Repository) -> Bool
+    func observe(repository: Repository, didChange: @escaping (ObjectChange) -> Void) -> NotificationToken?
 }
 
 protocol BookmarkInteractorDelegate: class {
     
-    func interactor(_ interactor: BookmarkUsecase, didBookmark repository: Repository)
+    func interactor(_ interactor: BookmarkUsecase, didUpdateBookmark repository: Repository, isBookmarked: Bool)
 }
 
 class BookmarkInteractor {
@@ -25,6 +27,7 @@ class BookmarkInteractor {
     weak var delegate: BookmarkInteractorDelegate?
     
     private let realm: Realm
+    private lazy var objects: Results<Bookmark> = realm.objects(Bookmark.self)
     
     init(realm: Realm = try! Realm()) {
         self.realm = realm
@@ -34,31 +37,44 @@ class BookmarkInteractor {
 extension BookmarkInteractor: BookmarkUsecase {
     
     func add(repository: Repository) {
-//        container.write { transaction in
-//            transaction.add(repository, update: true)
-//        }
-//        let queries: [RepositorySearchQuery] = container.retrieve { realm, objects in
-//            if let searchQuery = objects.filter("keyword = %@", query.keyword).first {
-//                try? realm.write {
-//                    searchQuery.date = Date()
-//                }
-//            } else {
-//                try? realm.write {
-//                    realm.add(query.managedObject(), update: false)
-//                }
-//            }
-//
-//            return objects.sorted(byKeyPath: "date", ascending: false)
-//        }
-//
-//        delegate?.interactor(self, didUpdate: queries)
+        
+        if let before = objects.first(where: { $0.repository.id == repository.id }) {
+            
+            try? realm.write {
+                before.bookmarkAt = Date()
+            }
+        } else {
+            try? realm.write {
+                realm.add(Bookmark(repository: repository), update: false)
+            }
+        }
+        
+        delegate?.interactor(self, didUpdateBookmark: repository, isBookmarked: true)
     }
     
-    func retrieve() {
-//        let queries: [RepositorySearchQuery] = container.retrieve { _, objects in
-//            return objects.sorted(byKeyPath: "date", ascending: false)
-//        }
-//        
-//        delegate?.interactor(self, didRetrieveHistory: queries)
+    func remove(repository: Repository) {
+        guard let bookmark = objects.first(where: { $0.repository.id == repository.id }) else {
+            return
+        }
+        
+        try? realm.write {
+            realm.delete(bookmark)
+        }
+        
+        delegate?.interactor(self, didUpdateBookmark: repository, isBookmarked: false)
+    }
+    
+    func isBookmarked(repository: Repository) -> Bool {
+        guard objects.first(where: { $0.repository.id == repository.id }) != nil else {
+            return false
+        }
+        return true
+    }
+    
+    func observe(repository: Repository, didChange: @escaping (ObjectChange) -> Void) -> NotificationToken? {
+        
+        return objects.first(where: { $0.repository.id == repository.id })?.observe { changes in
+            didChange(changes)
+        }
     }
 }

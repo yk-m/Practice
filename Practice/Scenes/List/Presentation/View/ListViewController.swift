@@ -74,7 +74,7 @@ class ListViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let newCell = tableView.dequeueReusableCell(with: ListCell.self, for: indexPath)
-        newCell.set(indexPath: indexPath, repository: items[indexPath.row], dateFormatter: dateFormatter)
+        newCell.set(repository: items[indexPath.row], dateFormatter: dateFormatter)
         newCell.delegate = self
         return newCell
     }
@@ -112,8 +112,7 @@ extension ListViewController: ListView {
 
 extension ListViewController: ListCellDelegate {
     
-    func listCell(_ listCell: ListCell, didTouchUpInsideAt indexPath: IndexPath) {
-        listCell.selectBookmarkButton()
-        tableView.reloadRows(at: [indexPath], with: .none)
+    func listCell(_ listCell: ListCell, didTouchUpInsideAt repository: Repository, isBookmarked: Bool) {
+        presenter.didTouchBookmarkButton(repository: repository, isBookmarked: isBookmarked)
     }
 }

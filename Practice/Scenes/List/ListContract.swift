@@ -23,6 +23,8 @@ protocol ListViewPresentable: class {
     
     func didSelectRow(repository: Repository)
     func refresh()
+    
+    func didTouchBookmarkButton(repository: Repository, isBookmarked: Bool)
 }
 
 // MARK: - router

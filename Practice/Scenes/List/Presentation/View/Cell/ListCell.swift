@@ -8,10 +8,11 @@
 
 import UIKit
 import Kingfisher
+import RealmSwift
 
 protocol ListCellDelegate: class {
     
-    func listCell(_ listCell: ListCell, didTouchUpInsideAt indexPath: IndexPath)
+    func listCell(_ listCell: ListCell, didTouchUpInsideAt repository: Repository, isBookmarked: Bool)
 }
 
 class ListCell: UITableViewCell {
@@ -27,14 +28,29 @@ class ListCell: UITableViewCell {
     @IBOutlet private weak var authorImage: UIImageView!
     @IBOutlet private weak var bookmarkButton: UIButton!
     @IBAction func buttonTouchUpInside(_ sender: Any) {
-        guard let indexPath = indexPath else {
+        guard let repository = repository else {
             return
         }
         
-        delegate?.listCell(self, didTouchUpInsideAt: indexPath)
+        delegate?.listCell(self, didTouchUpInsideAt: repository, isBookmarked: isBookmarked)
     }
     
     private var indexPath: IndexPath?
+    private var repository: Repository?
+    private var objects: Results<Bookmark> = (try! Realm()).objects(Bookmark.self)
+    private var notificationToken: NotificationToken? {
+        didSet {
+            oldValue?.invalidate()
+        }
+    }
+    
+    var isBookmarked: Bool {
+        guard let repository = repository,
+            objects.filter({ $0.repository.id == repository.id }).first != nil else {
+                return false
+        }
+        return true
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -52,8 +68,12 @@ class ListCell: UITableViewCell {
         }
     }
     
-    func set(indexPath: IndexPath, repository: Repository, dateFormatter: DateFormatter) {
-        self.indexPath = indexPath
+    deinit {
+        notificationToken?.invalidate()
+    }
+    
+    func set(repository: Repository, dateFormatter: DateFormatter) {
+        self.repository = repository
         
         nameLabel.text = repository.fullName
         descriptionLabel.text = repository.repoDescription ?? "---"
@@ -65,13 +85,24 @@ class ListCell: UITableViewCell {
         }
         authorImage.kf.indicatorType = .activity
         authorImage.setImage(with: URL(string: repository.owner.avatar_url))
+        
+        bookmarkButton.isSelected = isBookmarked
+        
+        notificationToken = objects.observe { [weak self] changes in
+            switch changes {
+            case .update:
+                self?.updateBookmarkButton()
+            default:
+                break
+            }
+        }
     }
     
-    func selectBookmarkButton() {
-        bookmarkButton.isSelected = true
-    }
-    
-    func deselectBookmarkButton() {
-        bookmarkButton.isSelected = false
+    func updateBookmarkButton() {
+        if isBookmarked == true {
+            bookmarkButton.isSelected = true
+        } else {
+            bookmarkButton.isSelected = false
+        }
     }
 }

@@ -13,15 +13,18 @@ class ListViewPresenter {
     private weak var view: ListView?
     private let router: ListWireframe
     private let repositoryInteractor: RepositoryUsecase
+    private let bookmarkInteractor: BookmarkUsecase
     
     private var searchText: String? = nil
 
     init(view: ListView,
          router: ListWireframe,
-         repositoryInteractor: RepositoryUsecase) {
+         repositoryInteractor: RepositoryUsecase,
+         bookmarkInteractor: BookmarkUsecase) {
         self.router = router
         self.view = view
         self.repositoryInteractor = repositoryInteractor
+        self.bookmarkInteractor = bookmarkInteractor
     }
 }
 
@@ -44,6 +47,14 @@ extension ListViewPresenter: ListViewPresentable {
         
         let query = RepositorySearchQuery(keyword: searchText)
         repositoryInteractor.retrieve(query: query)
+    }
+    
+    func didTouchBookmarkButton(repository: Repository, isBookmarked: Bool) {
+        if isBookmarked {
+            bookmarkInteractor.remove(repository: repository)
+        } else {
+            bookmarkInteractor.add(repository: repository)
+        }
     }
 }
 
@@ -82,5 +93,13 @@ extension ListViewPresenter: RepositoryInteractorDelegate {
         case .apiError(let error):
             view?.presentAlert(title: "エラーが発生しました", message: error.message)
         }
+    }
+}
+
+// MARK: - BookmarkInteractorDelegate
+extension ListViewPresenter: BookmarkInteractorDelegate {
+    
+    func interactor(_ interactor: BookmarkUsecase, didUpdateBookmark repository: Repository, isBookmarked: Bool) {
+        print("ブックマークしました")
     }
 }

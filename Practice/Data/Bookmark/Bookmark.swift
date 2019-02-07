@@ -9,8 +9,13 @@
 import Foundation
 import RealmSwift
 
-//class BookmarkObject: Object {
-//    
-//    @objc dynamic var date = Date()
-//    @objc dynamic var repository: Repository
-//}
+class Bookmark: Object {
+    
+    @objc dynamic var bookmarkAt = Date()
+    @objc dynamic var repository: Repository!
+    
+    convenience init(repository: Repository) {
+        self.init()
+        self.repository = repository
+    }
+}

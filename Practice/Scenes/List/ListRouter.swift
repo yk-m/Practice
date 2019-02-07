@@ -20,9 +20,11 @@ class ListRouter {
         let view = ListViewController()
         let router = ListRouter(viewController: view)
         let repositoryInteractor = RepositoryInteractor()
+        let bookmarkInteractor = BookmarkInteractor()
         let presenter = ListViewPresenter(view: view,
                                           router: router,
-                                          repositoryInteractor: repositoryInteractor)
+                                          repositoryInteractor: repositoryInteractor,
+                                          bookmarkInteractor: bookmarkInteractor)
 
         view.presenter = presenter
         repositoryInteractor.delegate = presenter

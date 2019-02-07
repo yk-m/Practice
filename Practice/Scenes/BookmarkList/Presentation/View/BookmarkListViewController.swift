@@ -58,7 +58,7 @@ extension BookmarkListViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let newCell = tableView.dequeueReusableCell(with: ListCell.self, for: indexPath)
-        newCell.set(indexPath: indexPath, repository: items[indexPath.row], dateFormatter: dateFormatter)
+        newCell.set(repository: items[indexPath.row], dateFormatter: dateFormatter)
         return newCell
     }
     
