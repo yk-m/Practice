@@ -14,7 +14,8 @@ protocol BookmarkUsecase {
     func add(repository: Repository)
     func remove(repository: Repository)
     func isBookmarked(repository: Repository) -> Bool
-    func observe(repository: Repository, didChange: @escaping (ObjectChange) -> Void) -> NotificationToken?
+    func all() -> Results<Bookmark>
+    func observe(didChange: @escaping (RealmCollectionChange<Results<Bookmark>>) -> Void) -> NotificationToken?
 }
 
 protocol BookmarkInteractorDelegate: class {
@@ -71,9 +72,13 @@ extension BookmarkInteractor: BookmarkUsecase {
         return true
     }
     
-    func observe(repository: Repository, didChange: @escaping (ObjectChange) -> Void) -> NotificationToken? {
+    func all() -> Results<Bookmark> {
+        return objects.sorted(byKeyPath: "bookmarkAt", ascending: false)
+    }
+    
+    func observe(didChange: @escaping (RealmCollectionChange<Results<Bookmark>>) -> Void) -> NotificationToken? {
         
-        return objects.first(where: { $0.repository.id == repository.id })?.observe { changes in
+        return objects.observe { changes in
             didChange(changes)
         }
     }

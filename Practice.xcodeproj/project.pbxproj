@@ -10,7 +10,6 @@
 		00EFA88659BD7039B35B1881 /* BookmarkListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C506A6C05C987FEC203230 /* BookmarkListPresenter.swift */; };
 		05FF01EF006080A08BCDDD6D /* SearchHistoryContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACCEC66E2E3FBC95781C59D /* SearchHistoryContract.swift */; };
 		19D98DB6E15ACD3D682EEA75 /* ListPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF0D918BD63A899A22B3734 /* ListPresenterTests.swift */; };
-		21007CF121F956F800BBDDD7 /* BookmarkListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21007CF021F956F800BBDDD7 /* BookmarkListViewController.xib */; };
 		21007CF421F9587300BBDDD7 /* BookmarkInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21007CF321F9587300BBDDD7 /* BookmarkInteractor.swift */; };
 		21007CFB21F95B0900BBDDD7 /* Bookmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21007CFA21F95B0900BBDDD7 /* Bookmark.swift */; };
 		2107FF437DF8B9D111C1CBBD /* Pods_PracticeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D870320F86057DEFAB8801D6 /* Pods_PracticeUITests.framework */; };
@@ -90,7 +89,6 @@
 		101DA9F36BF39E2395E11C7E /* ListViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		19C506A6C05C987FEC203230 /* BookmarkListPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BookmarkListPresenter.swift; sourceTree = "<group>"; };
 		19EA8C779DD064FA64F1F1D4 /* Pods_Practice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Practice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		21007CF021F956F800BBDDD7 /* BookmarkListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookmarkListViewController.xib; sourceTree = "<group>"; };
 		21007CF321F9587300BBDDD7 /* BookmarkInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkInteractor.swift; sourceTree = "<group>"; };
 		21007CFA21F95B0900BBDDD7 /* Bookmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bookmark.swift; sourceTree = "<group>"; };
 		2114EBC621CB358A0015F5B1 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -281,7 +279,6 @@
 			isa = PBXGroup;
 			children = (
 				3E26AC1DD3AE71DA3189D0FA /* BookmarkListViewController.swift */,
-				21007CF021F956F800BBDDD7 /* BookmarkListViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -641,7 +638,6 @@
 			files = (
 				B28AFD0221FAB1E300CB672A /* Images.xcassets in Resources */,
 				B2A7414121FAE5220080EA3C /* ListCell.xib in Resources */,
-				21007CF121F956F800BBDDD7 /* BookmarkListViewController.xib in Resources */,
 				B262755221C6A5AD00F5441E /* SearchHistoryViewController.xib in Resources */,
 				B28AFD0021FAB1A100CB672A /* Colors.xcassets in Resources */,
 				21B54E8D21F01E130090355D /* HistoryCell.xib in Resources */,

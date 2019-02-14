@@ -19,7 +19,9 @@ class BookmarkListRouter {
     static func assembleModules() -> UIViewController {
         let view = BookmarkListViewController()
         let router = BookmarkListRouter(viewController: view)
-        let presenter = BookmarkListViewPresenter(view: view, router: router)
+        let interactor = BookmarkInteractor()
+        let presenter = BookmarkListViewPresenter(view: view, router: router,
+                                                  interactor: interactor)
 
         view.presenter = presenter
 
