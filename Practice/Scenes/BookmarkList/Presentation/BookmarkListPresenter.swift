@@ -15,7 +15,8 @@ class BookmarkListViewPresenter {
     private let router: BookmarkListWireframe
     private let interactor: BookmarkUsecase
     
-    var notificationToken: NotificationToken?
+    private var notificationToken: NotificationToken?
+    private var shouldUpdate: Bool = false
 
     init(view: BookmarkListView, router: BookmarkListWireframe, interactor: BookmarkUsecase) {
         self.view = view
@@ -33,20 +34,20 @@ extension BookmarkListViewPresenter: BookmarkListViewPresentable {
     func viewDidLoad() {
         view?.set(repositories: Array(interactor.all()))
         notificationToken = interactor.observe { [weak self] change in
-            guard let repositories = self?.interactor.all() else {
-                return
-            }
-            self?.view?.set(repositories: Array(repositories))
-            
             switch change {
-            case .initial:
-                self?.view?.reload()
-            case .update(_, let deletions, let insertions, let modifications):
-                self?.view?.update(deletions: deletions, insertions: insertions, modifications: modifications)
-            case .error:
+            case .update:
+                self?.shouldUpdate = true
+            default:
                 break
             }
         }
+    }
+    
+    func viewWillAppear() {
+        guard shouldUpdate else {
+            return
+        }
+        view?.set(repositories: Array(interactor.all()))
     }
     
     func didSelectRow(repository: Repository) {
@@ -59,5 +60,9 @@ extension BookmarkListViewPresenter: BookmarkListViewPresentable {
         } else {
             interactor.add(repository: repository)
         }
+    }
+    
+    func refresh() {
+        view?.set(repositories: Array(interactor.all()))
     }
 }

@@ -12,17 +12,16 @@ import Foundation
 protocol BookmarkListView: class {
 
     func set(repositories: [Bookmark])
-    func refresh()
-    func reload()
-    func update(deletions: [Int], insertions: [Int], modifications: [Int])
 }
 
 // MARK: - presenter
 protocol BookmarkListViewPresentable: class {
 
     func viewDidLoad()
+    func viewWillAppear()
     func didSelectRow(repository: Repository)
     func didTouchBookmarkButton(repository: Repository, isBookmarked: Bool)
+    func refresh()
 }
 
 // MARK: - router
