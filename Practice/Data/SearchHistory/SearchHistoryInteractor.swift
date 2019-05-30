@@ -48,7 +48,7 @@ extension SearchHistoryInteractor: SearchHistoryUsecase {
             }
         } else {
             try? realm.write {
-                realm.add(query, update: false)
+                realm.add(query, update: .all)
             }
         }
         

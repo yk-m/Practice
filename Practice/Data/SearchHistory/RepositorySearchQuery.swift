@@ -22,4 +22,8 @@ class RepositorySearchQuery: Object, Queryable {
     func serialize() -> [URLQueryItem] {
         return [URLQueryItem(name: "q", value: keyword)]
     }
+    
+    override static func primaryKey() -> String? {
+        return "keyword"
+    }
 }

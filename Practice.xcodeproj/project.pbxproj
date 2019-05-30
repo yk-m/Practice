@@ -19,6 +19,7 @@
 		2197F93AB6F6805E6DB30512 /* ListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA1BA5B876878C2310C0592 /* ListRouter.swift */; };
 		21B54E8C21F01E130090355D /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B54E8A21F01E130090355D /* HistoryCell.swift */; };
 		21B54E8D21F01E130090355D /* HistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21B54E8B21F01E130090355D /* HistoryCell.xib */; };
+		21E15658229F796400A78CDC /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21E15657229F796400A78CDC /* WebKit.framework */; };
 		26F5CDB6311F2C7F12BC61ED /* ListContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866F313268D18B066EDC3B42 /* ListContract.swift */; };
 		424B88287142F4587BA432E2 /* RootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754085B7AD5B37D68C6B0CA7 /* RootRouter.swift */; };
 		45BF7FB66486ADF31FB99652 /* SearchHistoryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5652F52513563F455E3B62 /* SearchHistoryPresenter.swift */; };
@@ -96,6 +97,7 @@
 		2114EBCC21CB3D610015F5B1 /* UIColor+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+extension.swift"; sourceTree = "<group>"; };
 		21B54E8A21F01E130090355D /* HistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCell.swift; sourceTree = "<group>"; };
 		21B54E8B21F01E130090355D /* HistoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryCell.xib; sourceTree = "<group>"; };
+		21E15657229F796400A78CDC /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		2BA2FD0B1755957A23A16A73 /* Pods-PracticeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PracticeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PracticeTests/Pods-PracticeTests.release.xcconfig"; sourceTree = "<group>"; };
 		3438F2AD5A339A1F1347FD92 /* Pods-PracticeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PracticeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PracticeTests/Pods-PracticeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3E26AC1DD3AE71DA3189D0FA /* BookmarkListViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BookmarkListViewController.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21E15658229F796400A78CDC /* WebKit.framework in Frameworks */,
 				FF9A44172FA6F87BB418DC99 /* Pods_Practice.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -480,6 +483,7 @@
 		C7D45CDAC4179B9B6E507EF3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				21E15657229F796400A78CDC /* WebKit.framework */,
 				19EA8C779DD064FA64F1F1D4 /* Pods_Practice.framework */,
 				825CEC611AE200AEC9940680 /* Pods_PracticeTests.framework */,
 				D870320F86057DEFAB8801D6 /* Pods_PracticeUITests.framework */,
